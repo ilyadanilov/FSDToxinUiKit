@@ -1,0 +1,23 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10rem;
+  align-items: center;
+  &__container {
+    margin-top: 5rem;
+    width: 60rem;
+    display: flex;
+    flex-direction: column;
+
+  }
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  align-content: space-around;
+  &:not(:first-child) {
+    margin-top: 3rem;
+  }
+
+}

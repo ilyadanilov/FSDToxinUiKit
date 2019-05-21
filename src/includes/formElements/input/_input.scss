@@ -1,0 +1,32 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  &__label {
+    height: 1.875rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    text-transform: uppercase;
+    color: $color-dark-100;
+    margin-bottom: 0.5rem;
+  }
+  &__field {
+    width: 40rem;
+    height: 5.5rem;
+    background: $color-white;
+    border: 1px solid $color-dark-25;
+    border-radius: 4px;
+    font-size: $font-size-default;
+    font-family: inherit;
+    line-height: 2.25rem;
+    padding-left: 2rem;
+    color: rgba(31, 32, 65, 0.75);
+    &::placeholder {
+      color: $color-dark-25;
+    }
+    &:focus,
+    &:hover {
+      border: 1px solid $color-dark-50;
+    }
+  }
+}
