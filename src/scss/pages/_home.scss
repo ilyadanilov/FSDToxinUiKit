@@ -1,8 +1,8 @@
 .main {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   margin-top: 10rem;
-  align-items: center;
+  justify-content: space-around;
   &__container {
     margin-top: 5rem;
     width: 60rem;
@@ -13,10 +13,11 @@
 }
 .container {
   display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: space-between;
+
   align-content: space-around;
-  &:not(:first-child) {
+  &>:not(:first-child) {
     margin-top: 3rem;
   }
 
