@@ -21,6 +21,17 @@
     line-height: 2.25rem;
     padding-left: 2rem;
     color: rgba(31, 32, 65, 0.75);
+    -webkit-appearance: none;
+    &[type="date"] {
+      text-transform: uppercase;
+    }
+    &[type="date"]::-webkit-inner-spin-button,
+    &[type="date"]::-webkit-calendar-picker-indicator,
+    &[type="date"]::-webkit-clear-button {
+      display: none;
+      -webkit-appearance: none;
+    }
+
     &::placeholder {
       color: $color-dark-25;
     }

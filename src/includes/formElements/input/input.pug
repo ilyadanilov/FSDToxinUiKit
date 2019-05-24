@@ -1,3 +1,4 @@
-.input
-  label.input__label(for="text-field") Email
-  input.input__field(type="text" name="Email" id="text-field" placeholder="Email")
+mixin input(labelName, inputType, inputId, placeholder, required)
+  .input
+    label.input__label(for=inputId)=labelName
+    input.input__field(type=inputType name=labelName id=inputId placeholder=placeholder required=required)

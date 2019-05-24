@@ -10,4 +10,7 @@ html(lang="en")
     main.main
       .container
         include ./includes/formElements/input/input
+        +input("Email","Email","email-field","Email")
         include ./includes/formElements/dropdown/dropdown
+        +input("Дата рождения","date","date-field","Да.ММ.ГГГГ")
+        input(type="text" id="datepicker")

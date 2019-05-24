@@ -108,8 +108,8 @@
     line-height: 1rem;
     text-align: center;
     width: 4rem;
-    &[type="number"]::-webkit-outer-spin-button,
-    &[type="number"]::-webkit-inner-spin-button {
+    &[type=number]::-webkit-outer-spin-button,
+    &[type=number]::-webkit-inner-spin-button {
       -webkit-appearance: none;
       margin: 0;
     }
