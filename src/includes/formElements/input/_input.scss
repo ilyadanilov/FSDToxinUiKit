@@ -1,6 +1,7 @@
 .input {
   display: flex;
   flex-direction: column;
+
   &__label {
     height: 1.875rem;
     font-weight: bold;
@@ -39,5 +40,13 @@
     &:hover {
       border: 1px solid $color-dark-50;
     }
+    &-date {
+      width: 18.75rem;
+    }
   }
+
+}
+.date-input {
+ display: flex;
+ justify-content: space-between;
 }

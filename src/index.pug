@@ -4,7 +4,9 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    link(href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet")
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Quicksand&display=swap" rel="stylesheet">
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet")
     title Toxin UI Kit
   body
     main.main
@@ -12,5 +14,5 @@ html(lang="en")
         include ./includes/formElements/input/input
         +input("Email","Email","email-field","Email")
         include ./includes/formElements/dropdown/dropdown
-        +input("Дата рождения","date","date-field","Да.ММ.ГГГГ")
-        input(type="text" id="datepicker")
+        +input("Дата рождения","date","date-field")
+        +date

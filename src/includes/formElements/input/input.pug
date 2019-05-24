@@ -2,3 +2,12 @@ mixin input(labelName, inputType, inputId, placeholder, required)
   .input
     label.input__label(for=inputId)=labelName
     input.input__field(type=inputType name=labelName id=inputId placeholder=placeholder required=required)
+
+mixin date(labelName, inputId)
+  .date-input
+    .input
+      label.input__label(for="datepick-1")="Прибытие"
+      input.input__field.input__field-date(type="text" name="Прибытие" id="datepick-1" placeholder="ДД.ММ.ГГГГ" required=required)
+    .input
+      label.input__label(for="datepick-2")="Выезд"
+      input.input__field.input__field-date(type="text" name="Выезд" id="datepick-2" placeholder="ДД.ММ.ГГГГ" required=required)

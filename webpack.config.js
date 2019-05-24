@@ -1,14 +1,6 @@
-
-
-
-
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-
-
-
 
 module.exports = {
   mode: 'development',
@@ -19,12 +11,22 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist',
-
+    contentBase: './dist'
   },
   module: {
     rules: [
-
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              url: false
+            }
+          }
+        ]
+      },
       {
         test: /\.scss$/,
         include: path.resolve(__dirname, 'src/scss'),
@@ -48,12 +50,10 @@ module.exports = {
       {
         test: /\.js$/,
         use: 'webpack-import-glob-loader'
-    }
-
+      }
     ]
   },
   plugins: [
-
     // new CopyWebpackPlugin([
     //   {
     //     from: './src/img',
@@ -70,7 +70,6 @@ module.exports = {
       hash: true,
       template: './src/index.pug',
       filename: 'index.html'
-
-    }),
+    })
   ]
 };
