@@ -1,13 +1,18 @@
-mixin input(labelName, inputType, inputId, placeholder, required)
+mixin input(labelName, inputType, inputId, placeholder)
   .input
-    label.input__label(for=inputId)=labelName
-    input.input__field(type=inputType name=labelName id=inputId placeholder=placeholder required=required)
+    label.label.input__label(for=inputId)=labelName
+    input.input__field(type=inputType name=labelName id=inputId placeholder=placeholder)
 
-mixin date(labelName, inputId)
-  .date-input
+mixin date
+  .input.input-date
     .input
-      label.input__label(for="datepick-1")="Прибытие"
-      input.input__field.input__field-date(type="text" name="Прибытие" id="datepick-1" placeholder="ДД.ММ.ГГГГ" required=required)
+      label.label.input__label.input__icon(for="datepick-1")="Прибытие"
+      input.label.input__field.input__field-date(type="text" name="Прибытие" id="datepick-1" placeholder="ДД.ММ.ГГГГ" autocomplete='off')
     .input
-      label.input__label(for="datepick-2")="Выезд"
-      input.input__field.input__field-date(type="text" name="Выезд" id="datepick-2" placeholder="ДД.ММ.ГГГГ" required=required)
+      label.label.input__label.input__icon(for="datepick-2")="Выезд"
+      input.input__field.input__field-date(type="text" name="Выезд" id="datepick-2" placeholder="ДД.ММ.ГГГГ" autocomplete='off')
+
+mixin filter(labelName, inputId)
+  .input.input-filter
+    label.label.input__label.input__icon(for=inputId)=labelName
+    input.input__field(type=inputType name=labelName id=inputId)

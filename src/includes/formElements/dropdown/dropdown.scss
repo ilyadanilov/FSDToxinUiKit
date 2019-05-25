@@ -1,6 +1,4 @@
 .dropdown {
-  width: 40rem;
-
   &__checkbox {
     display: none;
     &:checked ~ .dropdown__placeholder {
@@ -15,6 +13,8 @@
       height: 159px;
       opacity: 1;
       transform: translateY(0);
+      padding: 1rem 1rem 1.5rem 2rem;
+
       & .dropdown__item {
         opacity: 1;
       }
@@ -57,7 +57,6 @@
     height: 0;
     opacity: 0;
     overflow: hidden;
-    padding: 1rem 1rem 1.5rem 2rem;
     transform: translateY(-100%);
     transition: all 0.5s;
     width: 100%;
@@ -108,8 +107,8 @@
     line-height: 1rem;
     text-align: center;
     width: 4rem;
-    &[type=number]::-webkit-outer-spin-button,
-    &[type=number]::-webkit-inner-spin-button {
+    &[type="number"]::-webkit-outer-spin-button,
+    &[type="number"]::-webkit-inner-spin-button {
       -webkit-appearance: none;
       margin: 0;
     }
