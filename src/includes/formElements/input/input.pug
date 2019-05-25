@@ -4,15 +4,15 @@ mixin input(labelName, inputType, inputId, placeholder)
     input.input__field(type=inputType name=labelName id=inputId placeholder=placeholder)
 
 mixin date
-  .input.input-date
+  .input.input_date
     .input
       label.label.input__label.input__icon(for="datepick-1")="Прибытие"
-      input.label.input__field.input__field-date(type="text" name="Прибытие" id="datepick-1" placeholder="ДД.ММ.ГГГГ" autocomplete='off')
+      input.input__field.input__field_date(type="text" name="Прибытие" id="datepick-1" placeholder="ДД.ММ.ГГГГ" autocomplete='off')
     .input
       label.label.input__label.input__icon(for="datepick-2")="Выезд"
-      input.input__field.input__field-date(type="text" name="Выезд" id="datepick-2" placeholder="ДД.ММ.ГГГГ" autocomplete='off')
+      input.input__field.input__field_date(type="text" name="Выезд" id="datepick-2" placeholder="ДД.ММ.ГГГГ" autocomplete='off')
 
 mixin filter(labelName, inputId)
-  .input.input-filter
+  .input.input_filter
     label.label.input__label.input__icon(for=inputId)=labelName
     input.input__field(type=inputType name=labelName id=inputId)
