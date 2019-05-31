@@ -39,7 +39,7 @@ var picker = new Lightpick({
   format: 'DD.MM.YYYY',
   footer: true,
   selectForward: true,
-  parentEl: '.input_date'
+  parentEl: '.form_date'
 });
 var filter = new Lightpick({
   field: document.getElementById('input-filter'),
@@ -77,5 +77,5 @@ var filter = new Lightpick({
   format: 'DD.MM',
   footer: true,
   selectForward: true,
-  parentEl: '.input_filter'
+  parentEl: '.form_filter'
 });

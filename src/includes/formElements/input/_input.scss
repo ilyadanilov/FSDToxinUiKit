@@ -1,6 +1,8 @@
-.input {
-  display: flex;
-  flex-direction: column;
+.form {
+  &__box {
+    display: flex;
+    flex-direction: column;
+  }
   &__label {
     margin-bottom: 0.5rem;
   }
@@ -65,7 +67,7 @@
   }
   &_filter{
     max-width: 33.25rem;
-    & .input__icon {
+    & .form__icon {
     &::after {
       right: 5%;
     }
