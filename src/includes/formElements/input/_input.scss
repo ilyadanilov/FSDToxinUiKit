@@ -2,6 +2,13 @@
   &__box {
     display: flex;
     flex-direction: column;
+    &_date {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    &_checkbox {
+      flex-direction: row;
+    }
   }
   &__label {
     margin-bottom: 0.5rem;
@@ -60,11 +67,7 @@
     }
 
   }
-  &_date {
-    flex-direction: row;
-    justify-content: space-between;
 
-  }
   &_filter{
     max-width: 33.25rem;
     & .form__icon {

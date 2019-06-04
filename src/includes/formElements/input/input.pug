@@ -4,7 +4,7 @@ mixin input(labelName, inputType, inputId, placeholder)
     input.form__field(type=inputType name=labelName id=inputId placeholder=placeholder)
 
 mixin date
-  .form__box.form_date
+  .form__box.form__box_date
     .form__box
       label.label.form__label.form__icon(for="datepick-1")="Прибытие"
       input.form__field.form__field_date(type="text" name="Прибытие" id="datepick-1" placeholder="ДД.ММ.ГГГГ" autocomplete='off')
