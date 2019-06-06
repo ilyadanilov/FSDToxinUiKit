@@ -9,10 +9,11 @@ html(lang="en")
       rel="stylesheet")
     title Toxin UI Kit
   body
+    include ./includes/formElements/input/input
+    include ./includes/formElements/checkbox/checkbox
+    include ./includes/formElements/like/like
     main.main
       .main__container
-        include ./includes/formElements/input/input
-        include ./includes/formElements/checkbox/checkbox
         +input("Text field","Email","email-field","Email")
         +input("Text field","Email","email-field","Email")
         include ./includes/formElements/dropdown/dropdown
@@ -26,6 +27,11 @@ html(lang="en")
         .form__box.form__box_column
           h3.label.form__label_mb-16 Radio Buttons
           +radio
-        .form_box
+        .form__box.form__box_column
           h3.label.form__label_mb-16 Toggle
           +switch
+        .form__box.form__box_column
+          h3.label.form__label_mb-16 Like button
+          .u-box
+            +like('rating')
+            +like('rating1')
