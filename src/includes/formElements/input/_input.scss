@@ -1,17 +1,30 @@
 .form {
+  &_filter {
+    max-width: 33.25rem;
+    & .form__icon {
+      &::after {
+        right: 5%;
+      }
+    }
+  }
   &__box {
     display: flex;
-    flex-direction: column;
-    &_date {
-      flex-direction: row;
+    position: relative;
+    &_space-between {
       justify-content: space-between;
     }
-    &_checkbox {
-      flex-direction: row;
+    &_column {
+      flex-direction: column;
     }
   }
   &__label {
     margin-bottom: 0.5rem;
+    &_mb-10 {
+      margin-bottom: 1.25rem;
+    }
+    &_mb-16 {
+      margin-bottom: 2rem;
+    }
   }
   &__field {
     color: inherit;
@@ -39,8 +52,7 @@
     &:focus,
     &:hover {
       border: 1px solid $color-dark-50;
-
-      }
+    }
 
     &_date {
       max-width: 18.75rem;
@@ -65,16 +77,5 @@
       pointer-events: none;
       z-index: 1;
     }
-
   }
-
-  &_filter{
-    max-width: 33.25rem;
-    & .form__icon {
-    &::after {
-      right: 5%;
-    }
-
-  }
-}
 }

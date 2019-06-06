@@ -1,3 +1,24 @@
-.form__box.form__box_checkbox
-  input.form__checkbox(type="checkbox" id='cb-general')
-  label.form__label.form__checkbox-label(for='cb-general') Checkbox
+mixin checkbox-btns
+  .form__box.form__box_column
+    h3.label.form__label_mb-16 Checkbox Buttons
+    .form__box
+      input.form__check(type="checkbox" id='cb-smoke')
+      label.form__label_mb-10.form__check-label(for='cb-smoke') Можно курить
+    .form__box
+      input.form__check(type="checkbox" id='cb-pets')
+      label.form__label_mb-10.form__check-label(for='cb-pets') Можно с питомцами
+    .form__box
+      input.form__check(type="checkbox" id='cb-guests')
+      label.form__label_mb-10.form__check-label(for='cb-guests') Можно пригласить гостей #[br] (до 10 человек)
+mixin radio
+  .form__box.form__box_space-between
+    .form__box
+      input.form__check(type="radio" id='r-1' name="gender" value='male')
+      label.form__check-label.form__radio-label(for='r-1') Мужчина
+    .form__box
+      input.form__check(type="radio" id='r-2' name="gender" value='female')
+      label.form__check-label.form__radio-label(for='r-2') Женщина
+mixin switch
+  .form__box
+    input.form__check.form__switch#sw(type="checkbox", name="switch")
+    label.form__check-label.form__switch-label(for="sw") Получать спецпредложения
