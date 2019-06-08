@@ -12,6 +12,7 @@ html(lang="en")
     include ./includes/formElements/input/input
     include ./includes/formElements/checkbox/checkbox
     include ./includes/formElements/like/like
+    include ./includes/formElements/starRate/starRate
     main.main
       .main__container
         +input("Text field","Email","email-field","Email")
@@ -32,6 +33,10 @@ html(lang="en")
           +switch
         .form__box.form__box_column
           h3.label.form__label_mb-16 Like button
-          .u-box
+          .form__box
             +like('rating')
             +like('rating1')
+        .form__box.form__box_column
+          h3.label.form__label_mb-16 Rate button
+          .form__box
+            +starRate
