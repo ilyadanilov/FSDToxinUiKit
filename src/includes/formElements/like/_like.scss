@@ -39,7 +39,7 @@
     z-index: -1;
     margin: -1px;
     border-radius: inherit;
-    background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+    background: $gradient-purple;
   }
 }
 @keyframes heart {

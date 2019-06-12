@@ -17,7 +17,7 @@
     font-size: 3rem;
     display: inline-block;
     position: relative;
-    background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+    background: $gradient-purple;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -31,7 +31,7 @@
    content: "\2605";
    position: absolute;
    left: 0;
-   background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+   background: $gradient-purple;
     -webkit-background-clip: text;
 }
 }
