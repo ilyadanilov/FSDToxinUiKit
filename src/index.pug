@@ -13,6 +13,7 @@ html(lang="en")
     include ./includes/formElements/checkbox/checkbox
     include ./includes/formElements/like/like
     include ./includes/formElements/starRate/starRate
+    include ./includes/formElements/slider/slider
     main.main
       .main__container
         +input("Text field","Email","email-field","Email")
@@ -40,3 +41,5 @@ html(lang="en")
           h3.label.form__label_mb-16 Rate button
           .form__box
             +starRate
+      .main__container
+        +slider

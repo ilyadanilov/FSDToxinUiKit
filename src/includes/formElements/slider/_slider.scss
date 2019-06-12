@@ -1,0 +1,65 @@
+.slider {
+  &__field {
+    &[type="number"]::-webkit-outer-spin-button,
+    &[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    -webkit-appearance: none;
+    border: none;
+    width: 6rem;
+    height: 2rem;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    color: $color-dark-50;
+    &:first-child {
+      text-align: right;
+    }
+  }
+  span {
+    color: $color-dark-50;
+  }
+  &__base {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 33.25rem;
+    height: 0.75rem;
+    border: solid 1px $color-dark-25;
+    border-radius: 3px;
+    background-color: $color-white;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__handle {
+    position: absolute;
+    width: 1.75rem;
+    height: 1.75rem;
+    background: $gradient-green;
+    border-radius: 50%;
+    border: solid 1px $color-white;
+    z-index: 1;
+    touch-action: none;
+    user-select: none;
+    // pointer-events: none;
+
+    &[data-handle="0"] {
+      left: 0;
+    }
+    &[data-handle="1"] {
+      right: 0;
+    }
+  }
+  &__connect {
+    width: 100%;
+    background: $gradient-green;
+    height: 150%;
+    border-radius: 3px;
+    user-select: none;
+    touch-action: none;
+    pointer-events: none;
+  }
+}

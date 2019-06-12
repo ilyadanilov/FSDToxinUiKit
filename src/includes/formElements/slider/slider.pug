@@ -1,0 +1,13 @@
+mixin slider
+  .form__box.form__box_column.slider
+    .form__box.form__box_space-between
+      label.label.form__label_mb-16 range slider
+      .form__box
+        input.slider__field(type='number' readonly='true')
+        span -
+        input.slider__field(type='number' readonly='true')
+    .form__box
+      .slider__base
+        .slider__handle(data-handle="0")
+        //- .slider__connect
+        .slider__handle(data-handle="1")
