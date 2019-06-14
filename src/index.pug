@@ -13,30 +13,40 @@ html(lang="en")
     include ./includes/formElements/checkbox/checkbox
     include ./includes/formElements/like/like
     include ./includes/formElements/starRate/starRate
+    include ./includes/formElements/slider/slider
     main.main
       .main__container
         +input("Text field","Email","email-field","Email")
         +input("Text field","Email","email-field","Email")
-        include ./includes/formElements/dropdown/dropdown
+        .form__box.form__box_column
+          h3.label.form__label Dropdown
+          include ./includes/formElements/dropdown/dropdown
         +input("masked text field","date","date_field", "ДД.ММ.ГГГГ")
-        +date
-        .form_filter
+        .form__box.form__box_space-between.u-mt-40
+          +date
+        .form_filter.u-mt-40
           +filter("filter date dropdown","input-filter")
-        include ./includes/formElements/subscribeForm/subscribe
+        .u-mt-40
+          include ./includes/formElements/subscribeForm/subscribe
       .main__container.form_filter
         +checkbox-btns
-        .form__box.form__box_column
+        .form__box.form__box_column.u-mt-40
           h3.label.form__label_mb-16 Radio Buttons
           +radio
-        .form__box.form__box_column
+        .form__box.form__box_column.u-mt-40
           h3.label.form__label_mb-16 Toggle
-          +switch
-        .form__box.form__box_column
+          .form__box.form__box_column.u-child-mb-14
+            +switch
+            +switch
+        .form__box.form__box_column.u-mt-40
           h3.label.form__label_mb-16 Like button
           .form__box
             +like('rating')
             +like('rating1')
-        .form__box.form__box_column
+        .form__box.form__box_column.u-mt-40
           h3.label.form__label_mb-16 Rate button
-          .form__box
+          .form__box.u-child-mr-20
             +starRate
+            +starRate
+      .main__container
+        +slider

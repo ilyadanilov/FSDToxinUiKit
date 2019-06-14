@@ -1,4 +1,5 @@
 import 'lightpick/css/lightpick.css';
+import 'nouislider/distribute/nouislider.css';
 import './scss/main.scss';
 import components from './includes/**/*.js';
 const Lightpick = require('lightpick');

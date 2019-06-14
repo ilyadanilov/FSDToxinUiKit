@@ -1,13 +1,25 @@
 .main {
   display: flex;
-  margin-top: 10rem;
-  justify-content: space-around;
+  margin: 18rem 17.5rem;
+
   &__container {
     display: flex;
   flex-direction: column;
   width: 40rem;
-  &>:not(:first-child) {
+
+  &:not(:first-child) {
+    margin-left: 15.75rem;
+  }
+
+  &>:first-child {
+    margin-top: 0;
+  }
+
+  &> *{
     margin-top: 20px;
   }
+}
+.u-mt-40 {
+  margin-top: 40px;
   }
 }

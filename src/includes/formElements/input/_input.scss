@@ -1,6 +1,6 @@
 .form {
   &_filter {
-    max-width: 33.25rem;
+    width: 33.25rem;
     & .form__icon {
       &::after {
         right: 5%;
@@ -25,10 +25,14 @@
     &_mb-16 {
       margin-bottom: 2rem;
     }
+    &_mb-40 {
+      margin-bottom: 5rem;
+    }
   }
   &__field {
     color: inherit;
     height: 5.5rem;
+    width: 40rem;
     font-family: inherit;
     background: $color-white;
     border: 1px solid $color-dark-25;
