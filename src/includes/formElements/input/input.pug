@@ -12,6 +12,6 @@ mixin date
       input.form__field.form__field_date(type="text" name="Выезд" id="datepick-2" placeholder="ДД.ММ.ГГГГ" autocomplete='off')
 
 mixin filter(labelName, inputId)
-  .form__box.form__box_column
+  .form__box.form__box_column#date-filter
     label.label.form__label.form__icon(for=inputId)=labelName
     input.form__field(type=inputType name=labelName id=inputId)

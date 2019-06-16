@@ -2,7 +2,7 @@ import 'lightpick/css/lightpick.css';
 import 'nouislider/distribute/nouislider.css';
 import './scss/main.scss';
 import components from './includes/**/*.js';
-const Lightpick = require('lightpick');
+const Lightpick = components[1];
 var picker = new Lightpick({
   field: document.getElementById('datepick-1'),
   secondField: document.getElementById('datepick-2'),
@@ -39,8 +39,7 @@ var picker = new Lightpick({
   },
   format: 'DD.MM.YYYY',
   footer: true,
-  selectForward: true,
-  parentEl: '.form__box_date'
+  selectForward: true
 });
 var filter = new Lightpick({
   field: document.getElementById('input-filter'),
@@ -77,6 +76,5 @@ var filter = new Lightpick({
   },
   format: 'DD.MM',
   footer: true,
-  selectForward: true,
-  parentEl: '.form_filter'
+  selectForward: true
 });
