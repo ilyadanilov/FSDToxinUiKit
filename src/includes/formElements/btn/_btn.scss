@@ -42,6 +42,7 @@
     border-radius: inherit;
     background: $gradient-purple;
   }
+  // Серый бордер
   &-opacity {
     &::before {
       background: linear-gradient(180deg, rgba(188, 156, 255, .5) 0%, rgba(139, 164, 249,.5) 100%);
@@ -51,5 +52,14 @@
   // Серая овальная кнопка
   &_opacity {
     opacity: .5;
+  }
+  &_big {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+      position: absolute;
+      right: 10px;
+    }
   }
 }
