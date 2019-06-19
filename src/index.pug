@@ -9,8 +9,9 @@ html(lang="en")
       rel="stylesheet")
     title Toxin UI Kit
   body
-    include ./includes/formElements/input/input
+    include ./includes/formElements/btn/btn
     include ./includes/formElements/checkbox/checkbox
+    include ./includes/formElements/input/input
     include ./includes/formElements/date-picker/date-picker
     include ./includes/formElements/date-filter/date-filter
     include ./includes/formElements/label/label
@@ -62,16 +63,29 @@ html(lang="en")
             +switch('Получать спецпредложения')
         //-  Кнопки лайка
         .form__container.form__container_column.u-mt-40
-          h3.label.form__label_mb-16 Like button
+          h3.h3.form__label_mb-16 Like button
           .form__container
             +like('rating')
             +like('rating1')
         //- Рейтинг
         .form__container.form__container_column.u-mt-40
-          h3.label.form__label_mb-16 Rate button
+          h3.h3.form__label_mb-16 Rate button
           .form__container.u-child-mr-20
             +starRate
             +starRate
       .main__container.form_filter
         //- Слайдер
-        +slider
+        .form__container.form__container_column
+          h3.h3.form__label_mb-16 Range slider
+          +slider
+        .form__container.form__container_column
+          h3.h3.form__label_mb-16 Buttons
+          .form__container.u-child-mr-20
+            +btn('Click me','btn_round')
+            +btn('Click me','btn_round btn_opacity')
+          .form__container.u-child-mr-20.u-mt-30
+            +btn('Click me','btn_border')
+            +btn('Click me','btn_border btn_border-opacity')
+          .form__container.u-child-mr-20.u-mt-30
+            +btn('Click me')
+            +btn('Click me', 'btn_shade')
