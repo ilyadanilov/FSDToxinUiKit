@@ -1,3 +1,5 @@
+
+// Кнопка лайка
 .like {
   -webkit-appearance: none;
   width: 5rem;
@@ -12,23 +14,26 @@
   align-items: center;
   //! margin для презентации в UI kit, сам по себе не нужен
   margin-right: 1.25rem;
+// Сердечко и количество лайков
   icon,
   span {
     font-size: 1.25rem;
-    // height: 1.25rem;
     color: $color-dark-25;
     transition: all .5s ease-out;
   }
 }
+// Класс добавляется через js при нажатии на кнопку
 .liked {
   border: solid 1px transparent;
   icon, span {
     color: $color-purple;
     // background-color: $color-purple;
   }
+  // Простая анимация сердечка при нажатии
   icon {
     animation: heart .5s ease-out;
   }
+  // Градиент бордера кнопки
   &::before {
     content: "";
     position: absolute;
@@ -42,6 +47,7 @@
     background: $gradient-purple;
   }
 }
+// Анимация сердечка
 @keyframes heart {
   0% {
     transform: scale(1);

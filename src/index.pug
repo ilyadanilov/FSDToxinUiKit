@@ -11,42 +11,67 @@ html(lang="en")
   body
     include ./includes/formElements/input/input
     include ./includes/formElements/checkbox/checkbox
+    include ./includes/formElements/date-picker/date-picker
+    include ./includes/formElements/date-filter/date-filter
+    include ./includes/formElements/label/label
     include ./includes/formElements/like/like
-    include ./includes/formElements/starRate/starRate
+    include ./includes/formElements/star-rate/star-rate
     include ./includes/formElements/slider/slider
+    include ./includes/formElements/subscribe-form/subscribe
     main.main
       .main__container
-        +input("Text field","Email","email-field","Email")
-        +input("Text field","Email","email-field","Email")
-        .form__box.form__box_column
-          h3.label.form__label Dropdown
-          include ./includes/formElements/dropdown/dropdown
-        +input("masked text field","date","date_field", "ДД.ММ.ГГГГ")
-        .form__box.form__box_space-between.u-mt-40#date
-          +date
-        .form_filter.u-mt-40
-          +filter("filter date dropdown","input-filter")
+        //- Простые инпут филды
+        +label('text field')
+          +input("Email","Text field")
+        +label('text field')
+          +input("Email","Text field")
+        //- Dropdown
+        include ./includes/formElements/dropdown/dropdown
+        //- Инпут для даты
+        +label('masked text field')
+          +input("date","ДД.ММ.ГГГГ")
+        //- Календарь
+        .form__container.form__container_space-between.u-mt-40
+          +label('date dropdown')
+            +date-picker('datepick-1')
+          +label('date dropdown')
+            +date-picker('datepick-2')
+        //- Календарь в фильтрах
         .u-mt-40
-          include ./includes/formElements/subscribeForm/subscribe
+          +label('filter date dropdown')
+            +date-filter("date-filter")
+        //- Форма подписки
+        +label('subscription text field')
+          +subscribe
       .main__container.form_filter
-        +checkbox-btns
-        .form__box.form__box_column.u-mt-40
-          h3.label.form__label_mb-16 Radio Buttons
-          +radio
-        .form__box.form__box_column.u-mt-40
-          h3.label.form__label_mb-16 Toggle
-          .form__box.form__box_column.u-child-mb-14
-            +switch
-            +switch
-        .form__box.form__box_column.u-mt-40
+        //- Чекбоксы
+        fieldset.form__container.form__container_column.form__check-container
+          legend.h3.form__label_mb-16 Checkbox Buttons
+          +checkbox("Можно курить")
+          +checkbox("Можно с питомцами")
+          +checkbox("Можно пригласить гостей (до 10 человек)")
+        //- Радио кнопки
+        .form__container.form__container_column.u-mt-40
+          h3.h3.form__label_mb-16 Radio Buttons
+          +radio("Мужчина","Женщина")
+        //- Свичи
+        .form__container.form__container_column.u-mt-40
+          h3.h3.form__label_mb-16 Toggle
+          .form__container.form__container_column.u-child-mb-14
+            +switch('Получать спецпредложения')
+            +switch('Получать спецпредложения')
+        //-  Кнопки лайка
+        .form__container.form__container_column.u-mt-40
           h3.label.form__label_mb-16 Like button
-          .form__box
+          .form__container
             +like('rating')
             +like('rating1')
-        .form__box.form__box_column.u-mt-40
+        //- Рейтинг
+        .form__container.form__container_column.u-mt-40
           h3.label.form__label_mb-16 Rate button
-          .form__box.u-child-mr-20
+          .form__container.u-child-mr-20
             +starRate
             +starRate
-      .main__container
+      .main__container.form_filter
+        //- Слайдер
         +slider

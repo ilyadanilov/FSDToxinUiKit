@@ -1,5 +1,10 @@
-.dropdown {
-  &__checkbox {
+// Отступ для label
+.dropdown__label {
+  margin-bottom: 0.5rem;
+}
+
+// Чекбокс, раскрывающий меню, скрыт
+.dropdown__checkbox {
     display: none;
     &:checked ~ .dropdown__placeholder {
       border: 1px solid $color-dark-50;
@@ -16,125 +21,106 @@
       transform: translateY(0);
       padding: 1rem 1rem 1.5rem 2rem;
 
-      & .dropdown__item {
-        opacity: 1;
-      }
     }
   }
-
-  &__placeholder {
-    background-color: $color-white;
-    border: 1px solid $color-dark-25;
-    border-radius: 4px;
-    color: $color-dark-75;
-    cursor: pointer;
+// Поле для клика, открывающее меню
+.dropdown__placeholder {
+  background-color: $color-white;
+  border: 1px solid $color-dark-25;
+  border-radius: 4px;
+  color: $color-dark-75;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $font-size-default;
+  position: relative;
+  padding: 1.5rem 2rem;
+  user-select: none;
+  width: 100%;
+  z-index: 1;
+  &::after {
+    content: "";
+    border: solid;
+    border-color: $color-dark-50;
+    border-width: 0 0.3rem 0.3rem 0;
     display: inline-block;
-    font-size: $font-size-default;
-    position: relative;
-    padding: 1.5rem 2rem;
-    user-select: none;
-    width: 100%;
-    z-index: 1;
-    &::after {
-      content: "";
-      border: solid;
-      border-color: $color-dark-50;
-      border-width: 0 0.3rem 0.3rem 0;
-      display: inline-block;
-      padding: 0.5rem;
-      position: absolute;
-      right: 5%;
-      top: 35%;
-      transform: rotate(45deg);
-      transition: all 0.5s;
-    }
-  }
-  &__menu {
-    border: 1px solid $color-dark-50;
-    border-radius: 0 0 4px 4px;
-    border-top: none;
-    display: flex;
-    flex-direction: column;
-    height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transform: translateY(-100%);
+    padding: 0.5rem;
+    position: absolute;
+    right: 5%;
+    top: 35%;
+    transform: rotate(45deg);
     transition: all 0.5s;
-    width: 100%;
-  }
-  &__item {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    opacity: 0;
-    padding-bottom: 0.5rem;
-    transition: 0.1s;
-  }
-
-  &__input-container {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__value-btn {
-    border: 1px solid $color-dark-25;
-    border-radius: 50%;
-    color: $color-dark-50;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 2rem;
-    height: 4rem;
-    margin: 0px;
-    padding: 0.7rem 0;
-    user-select: none;
-    text-align: center;
-    vertical-align: middle;
-    width: 4rem;
-  }
-
-  &__input {
-    border: none;
-    color: $color-dark-100;
-    font-family: Montserrat;
-    font-size: 1.5rem;
-    font-weight: bold;
-    line-height: 1rem;
-    text-align: center;
-    width: 4rem;
-    &[type="number"]::-webkit-outer-spin-button,
-    &[type="number"]::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-
-    &[type="number"] {
-      -moz-appearance: textfield;
-    }
-  }
-
-  &__btn-container {
-    display: flex;
-    margin-top: 2rem;
-    justify-content: space-between;
-  }
-  &__btn-clear {
-    display: none;
-  }
-  &__btn-accept {
-    margin-left: auto;
   }
 }
-.btn {
-  background-color: transparent;
-  border: none;
-  color: $color-purple;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 1.875rem;
-  text-transform: uppercase;
-  &-shade {
-    color: rgba(31, 32, 65, 0.5);
+// Dropdown меню
+.dropdown__menu {
+  border: 1px solid $color-dark-50;
+  border-radius: 0 0 4px 4px;
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-100%);
+  transition: all 0.5s;
+  width: 100%;
+
+  // Позиционирование контейнеров внутри меню
+  &> .dropdown__container {
+    &:not(:first-child) {
+      margin-top: 1rem;
+    }
+    &:last-child {
+      margin-top: 2rem;
+    }
   }
+}
+
+// Контейнер для центрирования инпутов
+.dropdown__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Dropdown инпут между кнопками
+.dropdown__input {
+  border: none;
+  color: $color-dark-100;
+  font-family: inherit;
+  font-size: $font-size-small;
+  font-weight: bold;
+  text-align: center;
+  width: 4rem;
+  &[type="number"]::-webkit-outer-spin-button,
+  &[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+// Круглые кнопки рядом с инпутом
+.dropdown__value-btn {
+  border: 1px solid $color-dark-25;
+  border-radius: 50%;
+  color: $color-dark-50;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  height: 4rem;
+  width: 4rem;
+  user-select: none;
+}
+
+// Кнопки внизу dropdown меню
+.dropdown__btn-clear {
+  display: none;
+}
+.dropdown__btn-accept {
+  margin-left: auto;
 }

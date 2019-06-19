@@ -1,85 +1,100 @@
-.form {
-  &_filter {
-    width: 33.25rem;
-    & .form__icon {
-      &::after {
-        right: 5%;
-      }
-    }
+// Базовое поле инпута
+.form__field {
+  color: inherit;
+  width: 40rem;
+  font-family: inherit;
+  background: $color-white;
+  border: 1px solid $color-dark-25;
+  border-radius: 4px;
+  padding: $font-size-default;
+  padding-right: 0;
+  -webkit-appearance: none;
+  // Placeholder
+  &::placeholder {
+    color: $color-dark-25;
   }
-  &__box {
-    display: flex;
-    position: relative;
-    &_space-between {
-      justify-content: space-between;
-    }
-    &_column {
-      flex-direction: column;
-    }
+  // Hover, focus
+  &:focus,
+  &:hover {
+    border: 1px solid $color-dark-50;
   }
-  &__label {
-    margin-bottom: 0.5rem;
-    &_mb-10 {
-      margin-bottom: 1.25rem;
-    }
-    &_mb-16 {
-      margin-bottom: 2rem;
-    }
-    &_mb-40 {
-      margin-bottom: 5rem;
-    }
+  // Капс для masked date
+  &[type="date"] {
+    text-transform: uppercase;
   }
-  &__field {
-    color: inherit;
-    height: 5.5rem;
-    width: 40rem;
-    font-family: inherit;
-    background: $color-white;
-    border: 1px solid $color-dark-25;
-    border-radius: 4px;
-    padding: $font-size-default;
-    padding-right: 0;
+  // Убрать элементы управления Chrome
+  &[type="date"]::-webkit-inner-spin-button,
+  &[type="date"]::-webkit-calendar-picker-indicator,
+  &[type="date"]::-webkit-clear-button {
+    display: none;
     -webkit-appearance: none;
-    &[type="date"] {
-      text-transform: uppercase;
-    }
-    &[type="date"]::-webkit-inner-spin-button,
-    &[type="date"]::-webkit-calendar-picker-indicator,
-    &[type="date"]::-webkit-clear-button {
-      display: none;
-      -webkit-appearance: none;
-    }
-
-    &::placeholder {
-      color: $color-dark-25;
-    }
-    &:focus,
-    &:hover {
-      border: 1px solid $color-dark-50;
-    }
-
-    &_date {
-      max-width: 18.75rem;
-      position: relative;
-      font-weight: normal;
-    }
-  }
-  &__icon {
-    position: relative;
-    &::after {
-      content: "";
-      border: solid;
-      border-color: $color-dark-50;
-      border-width: 0 0.3rem 0.3rem 0;
-      display: inline-block;
-      padding: 0.5rem;
-      position: absolute;
-      right: 10%;
-      top: 235%;
-      transform: rotate(45deg);
-      transition: all 0.5s;
-      pointer-events: none;
-      z-index: 1;
-    }
   }
 }
+
+.form__container {
+      display: flex;
+      position: relative;
+      border: none;
+      &_space-between {
+        justify-content: space-between;
+      }
+      &_column {
+        flex-direction: column;
+      }
+    }
+.form_filter {
+    width: 33.25rem;
+}
+// .form {
+//   &_filter {
+//     width: 33.25rem;
+//     & .form__icon {
+//       &::after {
+//         right: 5%;
+//       }
+//     }
+//   }
+//   &__box {
+//     display: flex;
+//     position: relative;
+//     &_space-between {
+//       justify-content: space-between;
+//     }
+//     &_column {
+//       flex-direction: column;
+//     }
+//   }
+//   &__label {
+//     margin-bottom: 0.5rem;
+//     &_mb-10 {
+//       margin-bottom: 1.25rem;
+//     }
+//     &_mb-16 {
+//       margin-bottom: 2rem;
+//     }
+//     &_mb-40 {
+//       margin-bottom: 5rem;
+//     }
+//   }
+//   &__field {
+//     color: inherit;
+//     height: 5.5rem;
+//     width: 40rem;
+//     font-family: inherit;
+//     background: $color-white;
+//     border: 1px solid $color-dark-25;
+//     border-radius: 4px;
+//     padding: $font-size-default;
+//     padding-right: 0;
+//     -webkit-appearance: none;
+//
+//     &::placeholder {
+//       color: $color-dark-25;
+//     }
+//     &:focus,
+//     &:hover {
+//       border: 1px solid $color-dark-50;
+//     }
+
+//
+// }

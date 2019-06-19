@@ -1,0 +1,13 @@
+.btn {
+  background-color: transparent;
+  border: none;
+  color: $color-purple;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: $font-size-small;
+  font-weight: bold;
+  text-transform: uppercase;
+  &-shade {
+    color: $color-dark-50;
+  }
+}

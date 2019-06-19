@@ -1,0 +1,17 @@
+.form__label {
+  display: flex;
+  flex-direction: column;
+  &> * {
+    margin-top: 0.5rem;
+  }
+
+  &_mb-10 {
+    margin-bottom: 1.25rem;
+  }
+  &_mb-16 {
+    margin-bottom: 2rem;
+  }
+  &_mb-40 {
+    margin-bottom: 5rem;
+  }
+}

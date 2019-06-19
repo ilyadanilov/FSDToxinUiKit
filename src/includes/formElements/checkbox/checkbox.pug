@@ -1,24 +1,18 @@
-mixin checkbox-btns
-  .form__box.form__box_column
-    h3.label.form__label_mb-16 Checkbox Buttons
-    .form__box
-      input.form__check(type="checkbox" id='cb-smoke')
-      label.form__label_mb-10.form__check-label(for='cb-smoke') Можно курить
-    .form__box
-      input.form__check(type="checkbox" id='cb-pets')
-      label.form__label_mb-10.form__check-label(for='cb-pets') Можно с питомцами
-    .form__box
-      input.form__check(type="checkbox" id='cb-guests')
-      label.form__check-label(for='cb-guests') Можно пригласить гостей #[br] (до 10 человек)
-mixin radio
-  .form__box.form__box_space-between
-    .form__box
-      input.form__check(type="radio" id='r-1' name="gender" value='male')
-      label.form__check-label.form__radio-label(for='r-1') Мужчина
-    .form__box
-      input.form__check(type="radio" id='r-2' name="gender" value='female')
-      label.form__check-label.form__radio-label(for='r-2') Женщина
-mixin switch
-  .form__box
-    input.form__check.form__switch#sw(type="checkbox", name="switch")
-    label.form__check-label.form__switch-label(for="sw") Получать спецпредложения
+mixin checkbox(spanText)
+  label.form__check-label
+    input.form__check(type="checkbox")
+    span.form__inner-text=spanText
+
+mixin radio(firstSpanText, secondSpanText)
+  .form__container.form__container_space-between
+      label.form__check-label.form__radio-label
+        input.form__check(type="radio" name="gender" value='male')
+        span.form__inner-text=firstSpanText
+      label.form__check-label.form__radio-label
+        input.form__check(type="radio" name="gender" value='female')
+        span.form__inner-text=secondSpanText
+
+mixin switch(spanText)
+    label.form__check-label.form__check-label_switch
+      input.form__check.form__check_switch(type="checkbox", name="switch")
+      span.form__inner-text.form__inner-text_switch=spanText

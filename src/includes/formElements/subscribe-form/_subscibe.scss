@@ -1,0 +1,15 @@
+.form__subscribe {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid $color-dark-25;
+}
+.form__field_subscribe {
+  border: none;
+}
+.form__submit {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  padding: 1.25rem;
+}

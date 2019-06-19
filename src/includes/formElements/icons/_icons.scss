@@ -1,0 +1,22 @@
+// Иконка ввиде галки
+.form__icon {
+  position: relative;
+  &::after {
+    content: "";
+    border: solid;
+    border-color: $color-dark-50;
+    border-width: 0 0.3rem 0.3rem 0;
+    display: inline-block;
+    padding: 0.5rem;
+    position: absolute;
+    right: 10%;
+    top: 235%;
+    transform: rotate(45deg);
+    transition: all 0.5s;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+.form__arrow-icon {
+  color: $color-purple;
+}

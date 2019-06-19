@@ -1,25 +1,23 @@
 .dropdown
-  label.dropdown__placeholder.js-dropdown__placeholder(for="dropdown") Сколько гостей
+  h3.h3.dropdown__label Dropdown
   input.dropdown__checkbox(type="checkbox", name="dropdown" id="dropdown")
+  label.dropdown__placeholder(for="dropdown") Сколько гостей
   .dropdown__menu
-    .dropdown__item
-      label.label Взрослые
-      .dropdown__input-container
-        .dropdown__value-btn.js-dropdown__value-btn(value="Decrease Value") -
-        input.dropdown__input.js-dropdown__input(type="number" value="0")
-        .dropdown__value-btn.js-dropdown__value-btn(value="Increase Value") +
-    .dropdown__item
-      label.label Дети
-      .dropdown__input-container
-        .dropdown__value-btn.js-dropdown__value-btn(value="Decrease Value") -
-        input.dropdown__input.js-dropdown__input(type="number" value="0")
-        .dropdown__value-btn.js-dropdown__value-btn(value="Increase Value") +
-    .dropdown__item
-      label.label Младенцы
-      .dropdown__input-container
-        .dropdown__value-btn.js-dropdown__value-btn(value="Decrease Value") -
-        input.dropdown__input.js-dropdown__input(type="number" value="0")
-        .dropdown__value-btn.js-dropdown__value-btn(value="Increase Value") +
-    .dropdown__btn-container
-      button.btn.btn-shade.dropdown__btn-clear.js-dropdown__btn-clear очистить
-      button.btn.dropdown__btn-accept.js-dropdown__btn-accept применить
+    label.h3.dropdown__container Взрослые
+      .dropdown__container
+        .dropdown__value-btn(value="Decrease Value") -
+        input.dropdown__input(type="number" value="0")
+        .dropdown__value-btn(value="Increase Value") +
+    label.h3.dropdown__container Дети
+      .dropdown__container
+        .dropdown__value-btn(value="Decrease Value") -
+        input.dropdown__input(type="number" value="0")
+        .dropdown__value-btn(value="Increase Value") +
+    label.h3.dropdown__container Младенцы
+      .dropdown__container
+        .dropdown__value-btn(value="Decrease Value") -
+        input.dropdown__input(type="number" value="0")
+        .dropdown__value-btn(value="Increase Value") +
+    .dropdown__container
+      button.btn.btn-shade.dropdown__btn-clear очистить
+      button.btn.dropdown__btn-accept применить
