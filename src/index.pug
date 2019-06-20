@@ -16,9 +16,10 @@ html(lang="en")
     include ./includes/formElements/date-filter/date-filter
     include ./includes/formElements/label/label
     include ./includes/formElements/like/like
-    include ./includes/formElements/star-rate/star-rate
     include ./includes/formElements/slider/slider
+    include ./includes/formElements/pagination/pagination
     include ./includes/formElements/subscribe-form/subscribe
+    include ./includes/formElements/star-rate/star-rate
     main.main
       .main__container
         //- Простые инпут филды
@@ -88,3 +89,6 @@ html(lang="en")
             +btn('Click me')
             +btn('Click me', 'btn_shade')
           +btnBig('перейти к оплате', 'btn_round u-mt-30')
+          .form__container.form__container_column.u-mt-30
+            h3.h3.form__label_mb-16 pagination
+            +pagination

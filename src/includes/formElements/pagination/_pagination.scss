@@ -1,0 +1,45 @@
+.pagination {
+  display: flex;
+  width: fit-content;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+.paginationjs {
+  margin-bottom: 1.25rem;
+}
+.paginationjs-pages {
+  ul {
+    display: flex;
+  }
+
+}
+.paginationjs-page,
+.paginationjs-next,
+.paginationjs-prev,
+.paginationjs-ellipsis {
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-dark-50;
+  a, a:visited {
+    color: inherit;
+    text-decoration: none;
+    font-size: $font-size-small;
+  }
+}
+.paginationjs-page.active {
+  border-radius: 50%;
+  background: $gradient-purple;
+  color: $color-white;
+}
+.paginationjs-next,
+.paginationjs-prev {
+  border-radius: 50%;
+  background: $gradient-green;
+}
+.paginationjs-arrow-icon {
+  display: flex;
+  color: $color-white;
+}
