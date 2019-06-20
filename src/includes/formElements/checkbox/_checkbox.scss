@@ -60,6 +60,7 @@
     -webkit-transition: 0.4s;
     transition: 0.4s;
   }
+  // Галочка
   &::after {
     content: "";
     opacity: 0;
@@ -68,7 +69,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    background: url(./../../../img/icons/check.svg) center 40% no-repeat;
+    background: url(./../../../img/icons/check.svg) 40% 40% no-repeat;
   }
   // Модификатор стилей чекбокса для свича
   &_switch {
@@ -99,7 +100,7 @@
       border-radius: 50%;
       padding: 0.75rem;
       top: 20%;
-      left: 4%;
+      left: .5rem;
       background: $gradient-purple center no-repeat;
     }
   }

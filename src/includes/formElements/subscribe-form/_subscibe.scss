@@ -3,9 +3,14 @@
   align-items: center;
   border-radius: 4px;
   border: 1px solid $color-dark-25;
+  &:hover {
+    border: 1px solid $color-dark-50;
+  }
 }
-.form__field_subscribe {
+.form__field_subscribe,
+.form__field_subscribe:hover {
   border: none;
+
 }
 .form__submit {
   border: none;
