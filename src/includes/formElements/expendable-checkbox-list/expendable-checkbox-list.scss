@@ -1,0 +1,8 @@
+.form__expendable {
+  & > .expcheck {
+    display: none;
+  }
+  &-legend {
+    cursor: pointer;
+  }
+}
