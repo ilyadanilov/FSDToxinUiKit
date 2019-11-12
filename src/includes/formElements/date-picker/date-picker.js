@@ -33,7 +33,7 @@ var picker = new Lightpick({
       return '';
     }
   },
-  format: 'DD.MM.YYYY',
+  format: 'YYYY-MM-DD',
   footer: true,
   selectForward: true
 });
