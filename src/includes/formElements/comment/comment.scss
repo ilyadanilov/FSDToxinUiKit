@@ -1,0 +1,18 @@
+.comment {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+
+  &__img {
+    width: 48px;
+    height: auto;
+    grid-row: 1 / span 2;
+  }
+  &__name {
+    grid-column: 2/-1;
+    grid-row: 1/2;
+  }
+  &__date {
+    grid-column: 2/-1;
+    grid-row: 2/3;
+  }
+}

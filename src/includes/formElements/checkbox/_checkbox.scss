@@ -1,9 +1,3 @@
-// Класс для контйнера с чекбоксами, ветикальное расстояние
-.form__check-container {
-  .form__check-label:not(:last-child) {
-    margin-bottom: 1.25rem;
-  }
-}
 // Заголовок-контейнер
 .form__check-label {
   display: flex;
@@ -24,7 +18,7 @@
   left: 0;
   // Состояние чекбокса
   &:checked {
-    & + .form__inner-text {
+    & + .form__check-label-text {
       color: $color-dark-75;
 
       &::after {
@@ -37,7 +31,7 @@
   }
   // Модификация состояния для свича
   &:checked {
-    & + .form__inner-text_switch {
+    & + .form__check-label-text_switch {
       &::after {
         background: $gradient-purple;
         transform: translateX(2.5rem);
@@ -46,7 +40,7 @@
   }
 }
 // Span с текстом и стилями для чекбокса
-.form__inner-text {
+.form__check-label-text {
   display: flex;
   align-items: center;
   &::before {
@@ -92,7 +86,7 @@
 
 // Модификация чекбокса в радиокнопки
 .form__check[type='radio'] {
-  & + .form__inner-text {
+  & + .form__check-label-text {
     &::before {
       border-radius: 50%;
     }

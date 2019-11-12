@@ -1,3 +1,7 @@
+.form__date-picker {
+  display: flex;
+  justify-content: space-between;
+}
 // Модификатор для календаря
 .form__field_date {
   width: 18.75rem;

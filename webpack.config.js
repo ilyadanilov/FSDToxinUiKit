@@ -51,6 +51,10 @@ module.exports = {
       {
         test: /\.js$/,
         use: 'webpack-import-glob-loader'
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader'
       }
     ]
   },
@@ -70,6 +74,11 @@ module.exports = {
       hash: true,
       template: './src/index.pug',
       filename: 'index.html'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      template: './src/includes/cards.pug',
+      filename: 'cards.html'
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',

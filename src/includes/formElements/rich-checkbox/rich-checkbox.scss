@@ -1,0 +1,12 @@
+.form__rich-check {
+  display: grid;
+  position: relative;
+
+  .form__check-label-text {
+  }
+}
+
+.form__rich-check-text {
+  margin-left: 30px;
+  grid-row-start: 2;
+}

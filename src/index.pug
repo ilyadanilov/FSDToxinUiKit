@@ -10,58 +10,61 @@ html(lang="en")
     title Toxin UI Kit
   body
     include ./includes/formElements/btn/btn
+    include ./includes/formElements/bullet-list/bullet-list
     include ./includes/formElements/checkbox/checkbox
-    include ./includes/formElements/input/input
-    include ./includes/formElements/date-picker/date-picker
+    include ./includes/formElements/comment/comment
     include ./includes/formElements/date-filter/date-filter
+    include ./includes/formElements/date-picker/date-picker
+    include ./includes/formElements/details/details
+    include ./includes/formElements/dropdown/dropdown
     include ./includes/formElements/expendable-checkbox-list/expendable-checkbox-list
+    include ./includes/formElements/input/input
     include ./includes/formElements/label/label
     include ./includes/formElements/like/like
-    include ./includes/formElements/slider/slider
     include ./includes/formElements/pagination/pagination
+    include ./includes/formElements/rich-checkbox/rich-checkbox
+    include ./includes/formElements/slider/slider
     include ./includes/formElements/subscribe-form/subscribe
     include ./includes/formElements/star-rate/star-rate
-    include ./includes/formElements/dropdown/dropdown
+    nav.nav
+      a.h3(href="cards.html") Cards
+      a(href="headers-and-footers.html") Headers & Footers
     main.main
       .main__container
-        //- Простые инпут филды
-        +label('text field')
-          +input("Email","Text field")
-        +label('text field')
-          +input("Email","Text field")
-        //- Dropdown
-        +dropdown
-        //- Инпут для даты
-        +label('masked text field')
-          +input("date","ДД.ММ.ГГГГ")
-        //- Календарь
-        .form__container.form__container_space-between.u-mt-40
-          +label('date dropdown')
-            +date-picker('datepick-1')
-          +label('date dropdown')
-            +date-picker('datepick-2')
-        //- Календарь в фильтрах
-        .u-mt-40.form_filter
-          +label('filter date dropdown')
-            +date-filter("date-filter")
-        .form_filter
-          //- Форма подписки
-          +label('subscription text field')
-            +subscribe
-      .main__container.main__container_center
-        .form_filter
+        form.form
+          +label('text field')
+            +input("Email","Text field")
+          +label('text field')
+            +input("Email","Text field")
+          //- Dropdown
+          +dropdown
+          //- Инпут для даты
+          +label('masked text field')
+            +input("date","ДД.ММ.ГГГГ")
+          //- Календарь
+          +date-picker('datepick-1', 'datepick-2')
+          //- Календарь в фильтрах
+          .form.form_filter
+            +label('filter date dropdown')
+              +date-filter('date-filter')
+            //- Форма подписки
+            +label('subscription text field')
+              +subscribe
+      .main__container
+        .form.form_filter
           //- Чекбоксы
-          fieldset.form__container.form__container_column.form__check-container
+          fieldset.form__container.form__container_column
             legend.h3.form__label_mb-16 Checkbox Buttons
-            +checkbox("Можно курить")
-            +checkbox("Можно с питомцами")
-            +checkbox("Можно пригласить гостей (до 10 человек)")
+            .form__check-container
+              +checkbox("Можно курить")
+              +checkbox("Можно с питомцами")
+              +checkbox("Можно пригласить гостей (до 10 человек)")
           //- Радио кнопки
-          .form__container.form__container_column.u-mt-40
+          .form__container.form__container_column
             h3.h3.form__label_mb-16 Radio Buttons
             +radio("Мужчина","Женщина")
           //- Свичи
-          .form__container.form__container_column.u-mt-40
+          .form__container.form__container_column.form__toggle
             h3.h3.form__label_mb-16 Toggle
             .form__container.form__container_column.u-child-mb-14
               +switch('Получать спецпредложения')
@@ -78,30 +81,46 @@ html(lang="en")
             .form__container.u-child-mr-20
               +starRate
               +starRate
-      .main__container.main__container_right
-        //- Слайдер
-        +slider
-        //- Кнопки
-        .form__container.form__container_column.u-mt-40
-          h3.h3.form__label_mb-16 Buttons
-          .form__container.u-child-mr-20
-            +btn('Click me','btn_round')
-            +btn('Click me','btn_round btn_opacity')
-          .form__container.u-child-mr-20.u-mt-30
-            +btn('Click me','btn_border')
-            +btn('Click me','btn_border btn_border-opacity')
-          .form__container.u-child-mr-20.u-mt-30
-            +btn('Click me')
-            +btn('Click me', 'btn_shade')
-          +btnBig('перейти к оплате', 'btn_round u-mt-30')
-        //- Пагинатор
-        .form__container.form__container_column.u-mt-40
-          h3.h3.form__label_mb-16 pagination
-          +pagination
       .main__container
-        .form_filter.u-mt-100
-          .form__cotainer
-            +dropdown
-          .form__cotainer.u-mt-20
-            +dropdown
-          +expendable
+        .form.form_filter
+          //- Слайдер
+          +slider
+          //- Кнопки
+          .form__container.form__container_column.u-mt-40
+            h3.h3.form__label_mb-16 Buttons
+            .form__container.u-child-mr-20
+              +btn('Click me','btn_round')
+              +btn('Click me','btn_round btn_opacity')
+            .form__container.u-child-mr-20.u-mt-30
+              +btn('Click me','btn_border')
+              +btn('Click me','btn_border btn_border-opacity')
+            .form__container.u-child-mr-20.u-mt-30
+              +btn('Click me')
+              +btn('Click me', 'btn_shade')
+            +btnBig('перейти к оплате', 'btn_round u-mt-30')
+          //- Пагинатор
+          .form__container.form__container_column.u-mt-40
+            h3.h3.form__label_mb-16 pagination
+            +pagination
+      .main__container.main__container_row
+        .form.form_filter
+          +dropdown
+          +dropdown
+          +expendable-list
+          +expendable-list
+          +details('#emoticon', "Комфорт", "Шумопоглощающие стены")
+          +details('#location', "Удобство", "Окно в каждой из спален")
+      .main__container
+        .form
+          +dropdown
+          fieldset.form__container.form__container_column
+            legend.h3.form__label_mb-16 Checkbox Buttons
+            .form__check-container
+              +rich-check("Широкий коридор", "Ширина коридоров в номере не менее 91 см.")
+              +rich-check("Помощник для инвалидов", "На 1 этаже вас встретит специалист  и проводит до номера.")
+      .main__container
+        .form.form_filter
+          +dropdown
+          +bullet-list
+      .main__container.main__container_comment
+        +comment

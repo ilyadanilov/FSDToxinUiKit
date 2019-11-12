@@ -1,17 +1,12 @@
-//- .dropdown
-//-     h3.h3.dropdown__label Dropdown
-//-     input.dropdown__checkbox(type="checkbox", name="dropdown" id="dropdown")
-//-     label.dropdown__placeholder(for="dropdown") Сколько гостей
-//-     .dropdown__menu
-//-       label.h3.dropdown__container Взрослые
-//-         .dropdown__container
-//-           .dropdown__value-btn(value="Decrease Value") -
-//-           input.dropdown__input(type="number" value="0")
-//-           .dropdown__value-btn(value="Increase Value") +
-mixin expendable
-  fieldset.form__container.form__container_column.form__check-container.form__expendable
+mixin expendable-list
+  fieldset.form__container.form__container_column.form__expendable-list
     legend.form__expendable-legend.h3.form__label_mb-16 Expendable checkbox list
-    .expcheck
-      +checkbox("Можно курить")
-      +checkbox("Можно с питомцами")
-      +checkbox("Можно пригласить гостей (до 10 человек)")
+    .form__check-container
+      +checkbox("Завтрак")
+      +checkbox("Письменный стол")
+      +checkbox("Стул для кормления")
+      +checkbox("Кроватка")
+      +checkbox("Телевизор")
+      +checkbox("Шампунь")
+      +checkbox("Халат")
+      +checkbox("Мини-бар")

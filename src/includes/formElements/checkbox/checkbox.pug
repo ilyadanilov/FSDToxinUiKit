@@ -1,18 +1,18 @@
 mixin checkbox(spanText)
   label.form__check-label
     input.form__check(type="checkbox")
-    span.form__inner-text=spanText
+    span.form__check-label-text=spanText
 
 mixin radio(firstSpanText, secondSpanText)
   .form__container.form__container_space-between
       label.form__check-label.form__radio-label
         input.form__check(type="radio" name="gender" value='male')
-        span.form__inner-text=firstSpanText
+        span.form__check-label-text=firstSpanText
       label.form__check-label.form__radio-label
         input.form__check(type="radio" name="gender" value='female')
-        span.form__inner-text=secondSpanText
+        span.form__check-label-text=secondSpanText
 
 mixin switch(spanText)
     label.form__check-label.form__check-label_switch
       input.form__check.form__check_switch(type="checkbox", name="switch")
-      span.form__inner-text.form__inner-text_switch=spanText
+      span.form__check-label-text.form__check-label-text_switch=spanText

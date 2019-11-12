@@ -175,3 +175,17 @@ $('#rating1').likeDislike({
     // });
   }
 });
+$('#rating2').likeDislike({
+  initialValue: 0,
+  activeClass: 'liked',
+  click: function(value, l, d, event) {
+    var likes = $(this.element).find('.likes');
+    likes.text(parseInt(likes.text()) + l);
+
+    // $.ajax({
+    //     url: 'url',
+    //     type: 'post',
+    //     data: 'value=' + value,
+    // });
+  }
+});

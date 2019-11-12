@@ -1,0 +1,27 @@
+.form {
+  display: grid;
+  grid-row-gap: 20px;
+  grid-auto-rows: min-content;
+  height: fit-content;
+}
+
+.form_filter {
+  width: 33.25rem;
+  grid-row-gap: 40px;
+}
+.form__container {
+  display: flex;
+  position: relative;
+  border: none;
+  &_space-between {
+    justify-content: space-between;
+  }
+  &_column {
+    flex-direction: column;
+  }
+}
+
+.form__check-container {
+  display: grid;
+  grid-row-gap: 1.25rem;
+}
