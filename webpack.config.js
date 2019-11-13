@@ -1,11 +1,12 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: './src/cards.js',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
@@ -19,7 +20,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -32,7 +33,7 @@ module.exports = {
         test: /\.scss$/,
         include: path.resolve(__dirname, 'src/scss'),
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -69,16 +70,18 @@ module.exports = {
         //     to: './css'
       }
     ]),
-
     new HtmlWebpackPlugin({
-      hash: true,
+      // hash: true,
+      template: './src/cards.pug',
+      filename: 'cards.html'
+    }),
+    new HtmlWebpackPlugin({
+      // hash: true,
       template: './src/index.pug',
       filename: 'index.html'
     }),
-    new HtmlWebpackPlugin({
-      hash: true,
-      template: './src/includes/cards.pug',
-      filename: 'cards.html'
+    new MiniCssExtractPlugin({
+      filename: 'css/style.[contenthash].css'
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
