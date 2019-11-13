@@ -112,8 +112,8 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       hash: true,
-      template: './src/cards.pug',
-      filename: 'cards.html'
+      template: './src/assets/cards.pug',
+      filename: 'assets/cards.html'
     }),
 
     new WebpackMd5Hash()
