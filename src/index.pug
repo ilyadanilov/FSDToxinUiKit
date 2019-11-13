@@ -28,7 +28,7 @@ html(lang="en")
     include ./includes/formElements/star-rate/star-rate
     nav.nav
       a.h3(href="assets/cards.html") Cards
-      a.h3(href="headers-and-footers.html") Headers & Footers
+      a.h3(href="assets/headers-and-footers.html") Headers & Footers
     main.main
       .main__container
         form.form
@@ -42,7 +42,7 @@ html(lang="en")
           +label('masked text field')
             +input("date","ДД.ММ.ГГГГ")
           //- Календарь
-          +date-picker('datepick-1', 'datepick-2')
+          +date-picker('date dropdown', 'date dropdown')
           //- Календарь в фильтрах
           .form.form_filter
             +label('filter date dropdown')

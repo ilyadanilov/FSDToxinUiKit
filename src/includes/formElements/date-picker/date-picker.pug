@@ -1,6 +1,7 @@
-mixin date-picker(id1, id2)
+include ../label/label
+mixin date-picker(labelName1, labelName2)
   .form__date-picker
-    +label('date dropdown')
-      input.form__field.form__field_date(type='date' name='datepicker' placeholder='ДД.ММ.ГГГГ' id=id1)
-    +label('date dropdown')
-      input.form__field.form__field_date(type='date' name='datepicker' placeholder='ДД.ММ.ГГГГ' id=id2)
+    +label(labelName1)
+      input.form__field.form__field_date(type='date' name='datepicker' placeholder='ДД.ММ.ГГГГ' id='datepick-1')
+    +label(labelName2)
+      input.form__field.form__field_date(type='date' name='datepicker' placeholder='ДД.ММ.ГГГГ' id='datepick-2')

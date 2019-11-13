@@ -2,6 +2,15 @@ body {
   font-size: $font-size-default;
   color: rgba(31, 32, 65, 0.75);
 }
+
+.h1 {
+  color: $color-dark-100;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 30px;
+}
+
 .h3 {
   font-weight: bold;
   font-size: 1.5rem;

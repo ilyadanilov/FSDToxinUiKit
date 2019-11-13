@@ -1,6 +1,8 @@
 .form__date-picker {
   display: flex;
-  justify-content: space-between;
+  & > :first-child {
+    margin-right: 20px;
+  }
 }
 // Модификатор для календаря
 .form__field_date {
