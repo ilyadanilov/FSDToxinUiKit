@@ -1,5 +1,21 @@
-mixin btn(btnText, btnClass)
-  button.btn(class=btnClass)=btnText
-mixin btnBig(btnText, btnClass)
-  button.btn.btn_big(class=btnClass)=btnText
+mixin btn(btnText)
+  button.btn=btnText
+
+mixin btn_light(btnText)
+  button.btn.btn_light=btnText
+
+mixin btn_round(btnText)
+  button.btn.btn_round=btnText
+
+mixin btn_round-light(btnText)
+  button.btn.btn_round.btn_light=btnText
+
+mixin btn_outline(btnText)
+  button.btn.btn_outline=btnText
+
+mixin btn_outline-light(btnText)
+  button.btn.btn_outline.btn_outline-light=btnText
+
+mixin btn_big(btnText)
+  button.btn.btn_big.btn_round=btnText
     i.material-icons arrow_forward

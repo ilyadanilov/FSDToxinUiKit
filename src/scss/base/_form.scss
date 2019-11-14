@@ -1,20 +1,24 @@
 .form {
   display: grid;
-  grid-row-gap: 20px;
   grid-auto-rows: min-content;
+  grid-row-gap: 20px;
   height: fit-content;
 }
 
 .form_filter {
-  width: 33.25rem;
   grid-row-gap: 40px;
+  width: 33.25rem;
 }
 .form__container {
+  border: none;
   display: flex;
   position: relative;
-  border: none;
+
   &_space-between {
     justify-content: space-between;
+  }
+  &_align-center {
+    align-items: center;
   }
   &_column {
     flex-direction: column;

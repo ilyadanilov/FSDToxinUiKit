@@ -1,0 +1,9 @@
+include ../../formElements/btn/btn
+include ../../formElements/date-picker/date-picker
+include ../../formElements/dropdown/dropdown
+mixin room-search
+  form.form.card
+    h1.h1 Найдём номера под ваши пожелания
+    +date-picker('Прибытие', 'Выезд')
+    +dropdown
+    +btn_big('подобрать номер', 'btn_round u-mt-10')

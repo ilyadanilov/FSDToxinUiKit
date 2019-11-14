@@ -46,7 +46,7 @@
   &::before {
     pointer-events: none;
     align-self: baseline;
-    content: '';
+    content: "";
     border: 1px solid $color-dark-25;
     border-radius: 4px;
     padding: 1.125rem;
@@ -56,7 +56,7 @@
   }
   // Галочка
   &::after {
-    content: '';
+    content: "";
     opacity: 0;
     pointer-events: none;
     padding: 1.25rem;
@@ -85,7 +85,7 @@
 }
 
 // Модификация чекбокса в радиокнопки
-.form__check[type='radio'] {
+.form__check[type="radio"] {
   & + .form__check-label-text {
     &::before {
       border-radius: 50%;
@@ -103,4 +103,8 @@
 .form__check_switch {
   width: 5rem;
   height: 2.5rem;
+}
+// Отступ между радио кнопками
+.form__radio-label:first-child {
+  margin-right: 20px;
 }

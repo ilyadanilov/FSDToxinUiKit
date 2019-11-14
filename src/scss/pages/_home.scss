@@ -17,6 +17,10 @@
     margin: 7rem 9.72%;
   }
 }
+.main__container {
+  display: grid;
+  grid-row-gap: 5rem;
+}
 .main__container_row {
   grid-row: 2 / span 2;
 }

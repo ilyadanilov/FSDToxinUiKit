@@ -9,9 +9,9 @@
   text-transform: uppercase;
   position: relative;
   // серый текст
-  &_shade {
-    color: $color-dark-50;
-  }
+  // &_light {
+  //   color: $color-dark-50;
+  // }
   // Овальная кнопка
   &_round {
     padding: 1.8125rem 2.5rem;
@@ -20,38 +20,41 @@
     color: $color-white;
   }
   // Кнопка с бордером
-  &_border {
+  &_outline {
     padding: 1.5625rem 2.25rem;
-
     background-color: $color-white;
-  border: solid 2px $color-dark-25;
-  position: relative;
-  background-clip: padding-box;
-  border-radius: 2.75rem;
+    border: solid 2px;
+    position: relative;
+    background-clip: padding-box;
+    border-radius: 2.75rem;
 
-  // Градиент бордера кнопки
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    margin: -1px;
-    border-radius: inherit;
-    background: $gradient-purple;
-  }
-  // Серый бордер
-  &-opacity {
+    // Градиент бордера кнопки
     &::before {
-      background: linear-gradient(180deg, rgba(188, 156, 255, .5) 0%, rgba(139, 164, 249,.5) 100%);
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      margin: -2px;
+      border-radius: inherit;
+      background: $gradient-purple;
+    }
+    // Серый бордер
+    &-light {
+      &::before {
+        background: linear-gradient(
+          180deg,
+          rgba(188, 156, 255, 0.5) 0%,
+          rgba(139, 164, 249, 0.5) 100%
+        );
+      }
     }
   }
-  }
   // Серая овальная кнопка
-  &_opacity {
-    opacity: .5;
+  &_light {
+    opacity: 0.5;
   }
   &_big {
     display: flex;

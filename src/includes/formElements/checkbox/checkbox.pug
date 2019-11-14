@@ -4,7 +4,7 @@ mixin checkbox(spanText)
     span.form__check-label-text=spanText
 
 mixin radio(firstSpanText, secondSpanText)
-  .form__container.form__container_space-between
+  .form__container
       label.form__check-label.form__radio-label
         input.form__check(type="radio" name="gender" value='male')
         span.form__check-label-text=firstSpanText

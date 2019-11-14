@@ -10,16 +10,13 @@ html(lang="en")
     link(href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet")
     title Toxin UI Kit Cards
   body
-    include ../includes/formElements/btn/btn
-    include ../includes/formElements/date-picker/date-picker
-    include ../includes/formElements/dropdown/dropdown
+    include ../includes/cards/registration/registration
+    include ../includes/cards/room-search/room-search
+
     nav.nav
       a.h3(href="../index.html") Form Elements
       a.h3(href="assets/headers-and-footers.html") Headers & Footers
     main.main
       .main__container
-        .card
-          h1.h1 Найдём номера под ваши пожелания
-          +date-picker('Прибытие', 'Выезд')
-          +dropdown
-          +btnBig('подобрать номер', 'btn_round u-mt-10')
+        +room-search
+        +registration
