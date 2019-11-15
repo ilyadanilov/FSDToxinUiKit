@@ -37,7 +37,7 @@ html(lang="en")
           +label('text field')
             +input("Email","Text field")
           //- Dropdown
-          +dropdown
+          +dropdown('dropdown')
           //- Инпут для даты
           +label('masked text field')
             +input("date","ДД.ММ.ГГГГ")
@@ -86,33 +86,46 @@ html(lang="en")
           //- Слайдер
           +slider
           //- Кнопки
-          .form__container.form__container_column.u-mt-40
-            h3.h3.form__label_mb-16 Buttons
-            .form__container.u-child-mr-20
+          .btn-display
+            h3.h3 Buttons
+            .btn-display__container
               +btn_round('Click me')
               +btn_round-light('Click me')
-            .form__container.u-child-mr-20.u-mt-30
+            .btn-display__container
               +btn_outline('Click me')
               +btn_outline-light('Click me')
-            .form__container.u-child-mr-20.u-mt-30
+            .btn-display__container
               +btn('Click me')
-              +btn_light('Click me')
+              +btn_grey('Click me')
             +btn_big('перейти к оплате')
+          //- .form__container.form__container_column.u-mt-40
+          //-   h3.h3.form__label_mb-16 Buttons
+          //-   .form__container.u-child-mr-20
+          //-     +btn_round('Click me')
+          //-     +btn_round-light('Click me')
+          //-   .form__container.u-child-mr-20.u-mt-30
+          //-     +btn_outline('Click me')
+          //-     +btn_outline-light('Click me')
+          //-   .form__container.u-child-mr-20.u-mt-30
+          //-     +btn('Click me')
+          //-     +btn_light('Click me')
+          //-   .form__container.u-mt-30
+          //-     +btn_big('перейти к оплате')
           //- Пагинатор
           .form__container.form__container_column.u-mt-40
             h3.h3.form__label_mb-16 pagination
             +pagination
       .main__container.main__container_row
         .form.form_filter
-          +dropdown
-          +dropdown
+          +dropdown('dropdown')
+          +dropdown('dropdown')
           +expendable-list
           +expendable-list
           +details('#emoticon', "Комфорт", "Шумопоглощающие стены")
           +details('#location', "Удобство", "Окно в каждой из спален")
       .main__container
         .form
-          +dropdown
+          +dropdown('dropdown')
           fieldset.form__container.form__container_column
             legend.h3.form__label_mb-16 Checkbox Buttons
             .form__check-container
@@ -120,7 +133,7 @@ html(lang="en")
               +rich-check("Помощник для инвалидов", "На 1 этаже вас встретит специалист  и проводит до номера.")
       .main__container
         .form.form_filter
-          +dropdown
+          +dropdown('dropdown')
           +bullet-list
       .main__container.main__container_comment
         +comment

@@ -1,8 +1,8 @@
 mixin btn(btnText)
   button.btn=btnText
 
-mixin btn_light(btnText)
-  button.btn.btn_light=btnText
+mixin btn_grey(btnText)
+  button.btn.btn_grey=btnText
 
 mixin btn_round(btnText)
   button.btn.btn_round=btnText
@@ -11,10 +11,12 @@ mixin btn_round-light(btnText)
   button.btn.btn_round.btn_light=btnText
 
 mixin btn_outline(btnText)
-  button.btn.btn_outline=btnText
+  button.btn.btn_outline
+    span=btnText
 
 mixin btn_outline-light(btnText)
-  button.btn.btn_outline.btn_outline-light=btnText
+  button.btn.btn_outline.btn_outline-light
+    span=btnText
 
 mixin btn_big(btnText)
   button.btn.btn_big.btn_round=btnText

@@ -1,0 +1,31 @@
+include ../../formElements/date-picker/date-picker
+include ../../formElements/dropdown/dropdown
+
+mixin room-booking
+  form.form.card.room-booking
+    .form__container.form__container_space-between.form__container_align-center
+      h1.h1.room-booking__heading
+        span №
+        =888
+        span люкс
+      p.room-booking__price
+        span 9990₽
+        =" в сутки"
+    +date-picker('Прибытие', 'Выезд')
+    +dropdown('гости')
+    ul.room-booking__details
+      li.room-booking__detail
+        span 9990₽ x 4суток
+        ='39960₽'
+      li.room-booking__detail
+        span Сбор за услуги: скидка 2 179₽
+          i.room-booking__icon.material-icons-outlined info
+        ='0₽'
+      li.room-booking__detail
+        span Сбор за дополнительные услуги
+            i.room-booking__icon.material-icons-outlined info
+        ='0₽'
+    .room-booking__sum
+      p.h1 Итого
+      p.h1 38 081₽
+    +btn_big('забронировать')

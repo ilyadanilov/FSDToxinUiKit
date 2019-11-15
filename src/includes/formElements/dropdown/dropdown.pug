@@ -1,6 +1,6 @@
-mixin dropdown
+mixin dropdown(labelName)
   .dropdown
-    h3.h3.dropdown__label Dropdown
+    h3.h3.dropdown__label=labelName
     input.dropdown__checkbox(type="checkbox", name="dropdown" id="dropdown")
     label.dropdown__placeholder(for="dropdown") Сколько гостей
     .dropdown__menu

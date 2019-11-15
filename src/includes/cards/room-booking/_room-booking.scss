@@ -1,0 +1,49 @@
+.room-booking {
+  &__heading {
+    span {
+      font-size: $font-size-default;
+      margin-right: 5px;
+      &:last-child {
+        margin-left: 5px;
+        color: $color-purple;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  &__price {
+    color: $color-dark-50;
+    span {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+  &__details {
+    display: grid;
+    grid-row-gap: 20px;
+  }
+  &__detail {
+    display: flex;
+    justify-content: space-between;
+    span {
+      display: flex;
+      align-items: flex-start;
+      width: 76%;
+    }
+  }
+  &__icon {
+    color: $color-dark-25;
+    margin-left: 5px;
+  }
+
+  &__sum {
+    border-bottom: 1px dotted $color-dark-25;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    p {
+      background-color: $color-white;
+      margin-bottom: -6px;
+    }
+  }
+}

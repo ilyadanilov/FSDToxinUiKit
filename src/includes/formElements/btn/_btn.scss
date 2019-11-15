@@ -8,50 +8,35 @@
   font-weight: bold;
   text-transform: uppercase;
   position: relative;
-  // серый текст
-  // &_light {
-  //   color: $color-dark-50;
-  // }
+  &_grey {
+    color: $color-dark-50;
+  }
   // Овальная кнопка
   &_round {
-    padding: 1.8125rem 2.5rem;
+    padding: 1.75rem 2.5rem;
     background: $gradient-purple;
     border-radius: 2.75rem;
     color: $color-white;
   }
   // Кнопка с бордером
   &_outline {
-    padding: 1.5625rem 2.25rem;
-    background-color: $color-white;
-    border: solid 2px;
-    position: relative;
-    background-clip: padding-box;
-    border-radius: 2.75rem;
-
-    // Градиент бордера кнопки
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-      margin: -2px;
-      border-radius: inherit;
-      background: $gradient-purple;
+    background: $gradient-purple;
+    border-radius: 100px;
+    padding: 2rem 2px;
+    span {
+      border-radius: 2.75rem;
+      padding: 1.75rem 2.5rem;
+      background-color: $color-white;
     }
     // Серый бордер
     &-light {
-      &::before {
-        background: linear-gradient(
-          180deg,
-          rgba(188, 156, 255, 0.5) 0%,
-          rgba(139, 164, 249, 0.5) 100%
-        );
+      background: $gradient-purple-light;
+      span {
+        opacity: 100%;
       }
     }
   }
+
   // Серая овальная кнопка
   &_light {
     opacity: 0.5;
