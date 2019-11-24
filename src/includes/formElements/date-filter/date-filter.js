@@ -1,4 +1,4 @@
-import Lightpick from '../../../lightpick.js';
+import Lightpick from 'lightpick';
 var filter = new Lightpick({
   field: document.getElementById('date-filter'),
   singleDate: false,
@@ -11,7 +11,8 @@ var filter = new Lightpick({
       many: 'дней'
     },
     pluralize: function(i, locale) {
-      if ('one' in locale && i % 10 === 1 && !(i % 100 === 11)) return locale.one;
+      if ('one' in locale && i % 10 === 1 && !(i % 100 === 11))
+        return locale.one;
       if (
         'few' in locale &&
         i % 10 === Math.floor(i % 10) &&

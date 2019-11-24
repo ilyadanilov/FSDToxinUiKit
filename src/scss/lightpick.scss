@@ -1,0 +1,483 @@
+// Helper Functions
+
+/// Replace `$search` with `$replace` in `$string`
+/// @author Hugo Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function lightpick-str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      lightpick-str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}
+
+/// Split `$string` between the `$separator` characters
+/// @author https://stackoverflow.com/a/42295154/108816
+/// @param {String} $string - Initial string
+/// @param {String} $separator - Substring to split on
+/// @return {List} - Split string
+@function lightpick-str-split($string, $separator) {
+  $split-arr: ();
+  $index: str-index($string, $separator);
+
+  @while $index != null {
+    $item: str-slice($string, 1, $index - 1);
+
+    $split-arr: append($split-arr, $item);
+
+    $string: str-slice($string, $index + 1);
+
+    $index: str-index($string, $separator);
+  }
+
+  $split-arr: append($split-arr, $string);
+
+  @return $split-arr;
+}
+
+// SCSS Variables
+
+$lightpick-font: "Montserrat", sans-serif !default;
+$lightpick-line-height: 1.125em !default;
+$lightpick-border-radius: 4px !default;
+$lightpick-padding: 4px !default;
+$lightpick-color: #bc9cff !default;
+$lightpick-color-dark: rgba(31, 32, 65, 0.5) !default;
+$lightpick-background-color: #fff !default;
+$lightpick-months-background-color: #eee !default;
+$lightpick-title-color: #1f2041;
+$lightpick-title-font-size: 16px !default;
+$lightpick-title-font-weight: bold !default;
+$lightpick-day-of-week-font-size: 1.5rem !default;
+$lightpick-day-of-week-font-weight: bold !default;
+$lightpick-day-background-color: linear-gradient(
+  180deg,
+  #bc9cff 0%,
+  #8ba4f9 100%
+) !default;
+$lightpick-day-hover-color: #e0e0e0 !default;
+$lightpick-day-hover-background-image-color: lightpick-str-replace(
+  quote(#{$lightpick-day-hover-color}),
+  "#",
+  "%23"
+);
+$lightpick-day-hover-background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle fill='#{$lightpick-day-hover-background-image-color}' cx='16' cy='16' r='16'/%3E%3C/svg%3E") !default;
+$lightpick-day-disabled-opacity: 0.38 !default;
+$lightpick-day-previous-next-opacity: $lightpick-day-disabled-opacity !default;
+$lightpick-day-size: 40px !default;
+$lightpick-day-font-size: 1.5rem !default;
+$lightpick-selected-date-color: #fff !default;
+$lightpick-selected-date-background-color: #268bd2 !default;
+$lightpick-selected-date-background-image-color: lightpick-str-replace(
+  quote(#{$lightpick-selected-date-background-color}),
+  "#",
+  "%23"
+);
+$lightpick-selected-date-background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle fill='#{$lightpick-selected-date-background-image-color}' cx='16' cy='16' r='16'/%3E%3C/svg%3E") !default;
+$lightpick-selected-date-font-weight: bold !default;
+$lightpick-selected-range-background-color: rgba(230, 232, 254, 0.5) !default;
+$lightpick-selected-range-hover-background-image: $lightpick-selected-date-background-color !default;
+$lightpick-today-background: linear-gradient(
+  180deg,
+  #6fcf97 0%,
+  #66d2ea 100%
+) !default;
+$lightpick-tooltip-background-color: #fff !default;
+$lightpick-tooltip-padding: 4px 8px !default;
+$lightpick-tooltip-margin: -(unquote(nth(lightpick-str-split(quote(#{$lightpick-tooltip-padding}), " "), 1))) !default;
+$lightpick-tooltip-triangle-size: 4px !default;
+$lightpick-tooltip-border-color: rgba(0, 0, 0, 0.12) !default;
+$lightpick-tooltip-font-size: 11px !default;
+$lightpick-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !default;
+$lightpick-dropdown-font-size: 1em !default;
+$lightpick-dropdown-font-weight: bold !default;
+$lightpick-dropdown-disabled-color: #333 !default;
+$lightpick-action-width: 32px !default;
+$lightpick-action-height: $lightpick-action-width !default;
+$lightpick-action-background-color: #ddd !default;
+$lightpick-action-reset-background-color: #aeacad !default;
+$lightpick-action-reset-color: #fff !default;
+$lightpick-action-apply-background-color: #2495f3 !default;
+$lightpick-action-apply-color: #fff !default;
+$lightpick-action-border-radius: 5px !default;
+$lightpick-action-font-size: 12px !default;
+$lightpick-action-close-font-size: 18px !default;
+
+// Styles
+
+.lightpick {
+  position: absolute;
+  z-index: 99999;
+  padding: 3rem 2rem;
+  border-radius: $lightpick-border-radius;
+  background-color: $lightpick-background-color;
+  box-shadow: $lightpick-box-shadow;
+  color: $lightpick-color;
+  font-family: $lightpick-font;
+  line-height: $lightpick-line-height;
+
+  &--inlined {
+    position: relative;
+    display: inline-block;
+  }
+
+  &,
+  & *,
+  &::after,
+  &::before {
+    box-sizing: border-box;
+  }
+
+  &.is-hidden {
+    display: none;
+  }
+
+  &__months {
+    display: grid;
+    background-color: $lightpick-months-background-color;
+    grid-template-columns: auto;
+    grid-gap: 1px;
+
+    @at-root .lightpick--2-columns #{&} {
+      grid-template-columns: auto auto;
+    }
+
+    @at-root .lightpick--3-columns #{&} {
+      grid-template-columns: auto auto auto;
+    }
+
+    @at-root .lightpick--4-columns #{&} {
+      grid-template-columns: auto auto auto auto;
+    }
+
+    @at-root .lightpick--5-columns #{&} {
+      grid-template-columns: auto auto auto auto auto;
+    }
+  }
+
+  &__month {
+    padding: 0;
+    width: ($lightpick-day-size * 7) + ($lightpick-padding * 2);
+    background-color: $lightpick-background-color;
+
+    &-title-bar {
+      display: flex;
+      margin-bottom: 4rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-title {
+      font-size: 2.375rem;
+      font-weight: $lightpick-title-font-weight;
+      line-height: $lightpick-title-font-size * 1.5;
+      cursor: default;
+      color: $lightpick-title-color;
+      border-radius: $lightpick-border-radius;
+
+      & > .lightpick__select {
+        border: none;
+        background-color: transparent;
+        outline: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+
+        &:disabled {
+          color: $lightpick-dropdown-disabled-color;
+        }
+      }
+
+      & > .lightpick__select-months {
+        font-weight: $lightpick-dropdown-font-weight;
+        font-size: $lightpick-dropdown-font-size;
+        text-align-last: center;
+        margin-right: 0.2rem;
+      }
+      & > .lightpick__select-years {
+        font-family: "Quicksand";
+        font-size: inherit;
+        font-weight: inherit;
+      }
+    }
+  }
+
+  &__toolbar {
+    display: flex;
+    text-align: right;
+    justify-content: flex-end;
+  }
+
+  &__previous-action,
+  &__next-action,
+  &__close-action {
+    display: flex;
+    width: $lightpick-action-width;
+    height: $lightpick-action-height;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+
+    &:active {
+      color: inherit;
+    }
+  }
+
+  &__previous-action,
+  &__next-action {
+    font-size: $lightpick-action-font-size;
+  }
+
+  &__close-action {
+    font-size: $lightpick-action-close-font-size;
+  }
+
+  &__days-of-the-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 1rem;
+  }
+
+  &__day-of-the-week {
+    display: flex;
+    font-size: $lightpick-day-of-week-font-size;
+    font-weight: $lightpick-day-of-week-font-weight;
+    justify-content: center;
+    align-items: center;
+    color: $lightpick-color;
+  }
+
+  &__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  &__day {
+    color: $lightpick-color-dark;
+    display: flex;
+    height: $lightpick-day-size;
+    font-size: $lightpick-day-font-size;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    position: relative;
+    z-index: 1;
+
+    &.is-available:hover,
+    &.is-available.is-start-date.is-in-range.is-end-date,
+    &.is-available.is-start-date.is-in-range,
+    &.is-available.is-end-date.is-in-range {
+      color: #fff;
+      &::before {
+        content: "";
+        background: $lightpick-day-background-color;
+        border-radius: 50%;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+      }
+    }
+    &.is-available.is-in-range {
+      border-radius: 0;
+      background: $lightpick-selected-range-background-color;
+      position: relative;
+      z-index: 1;
+      color: $lightpick-color-dark;
+      &:hover {
+        background: $lightpick-selected-range-background-color;
+        &::before {
+          border-radius: 50%;
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: $lightpick-day-background-color;
+          opacity: 0.5;
+        }
+      }
+    }
+
+    &.is-available.is-start-date.is-in-range {
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
+    }
+    &.is-available.is-end-date.is-in-range {
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+    }
+    &.is-available.is-start-date.is-in-range.is-end-date {
+      border-radius: 50%;
+    }
+
+    &.is-today {
+      background: $lightpick-today-background;
+      color: #fff;
+      border-radius: 50%;
+    }
+
+    &.is-disabled {
+      opacity: $lightpick-day-disabled-opacity;
+      pointer-events: none;
+    }
+
+    //   &.is-forward-selected {
+    //     opacity: 1;
+
+    //     &:not(.is-start-date) {
+    //       background-color: $lightpick-selected-range-background-color;
+    //       background-image: none;
+    //     }
+    //   }
+    // }
+
+    // &.disabled-tooltip {
+    //   pointer-events: auto;
+    // }
+
+    // &.is-previous-month,
+    // &.is-next-month {
+    //   color: rgba(31, 32, 65, 0.25);
+    // }
+
+    // &#{&}.is-in-range:not(.is-disabled) {
+    //   opacity: 1;
+    // }
+
+    // &.is-in-range {
+    //   border-radius: 0;
+    //   background: $lightpick-selected-range-background-color;
+    //   position: relative;
+    //   z-index: 1;
+    //   &:hover {
+    //     background: $lightpick-day-background-color;
+    //     border-radius: 50%;
+    //     &::before {
+    //       content: "";
+    //       position: absolute;
+    //       top: 0;
+    //       left: 0;
+    //       right: 0;
+    //       bottom: 0;
+    //       background: $lightpick-selected-range-background-color;
+    //     }
+    //   }
+    // }
+
+    // &.is-start-date.is-in-range,
+    // &.is-end-date.is-in-range.is-flipped,
+    // &.is-end-date.is-in-range,
+    // &.is-start-date.is-in-range.is-flipped,
+    // &:not(.is-disabled):hover {
+    //   color: #fff;
+    //   &::before {
+    //     content: "";
+    //     background: $lightpick-day-background-color;
+    //     border-radius: 50%;
+    //     height: 100%;
+    //     position: absolute;
+    //     width: 100%;
+    //     z-index: -1;
+    //   }
+    // }
+
+    // &.is-available.is-start-date.is-in-range,
+    // &.is-available.is-end-date.is-in-range {
+    //   background: $lightpick-selected-range-background-color;
+    //   border-top-left-radius: 50%;
+    //   border-bottom-left-radius: 50%;
+    //   z-index: 1;
+    //   position: relative;
+    // }
+
+    // &.is-available.is-start-date.is-in-range:hover {
+    //   border-top-left-radius: 50%;
+    //   border-bottom-left-radius: 50%;
+    // }
+    // &.is-available.is-end-date.is-in-range {
+    //   border-top-left-radius: 0;
+    //   border-bottom-left-radius: 0;
+    //   border-top-right-radius: 50%;
+    //   border-bottom-right-radius: 50%;
+    // }
+
+    // &.is-start-date.is-end-date {
+    //   border-radius: 50%;
+    // }
+
+    // &.is-available.is-start-date.is-in-range.is-end-date {
+    //   border-radius: 50%;
+    // }
+  }
+
+  &__tooltip {
+    position: absolute;
+    margin-top: $lightpick-tooltip-margin;
+    padding: $lightpick-tooltip-padding;
+    border-radius: $lightpick-border-radius;
+    background-color: $lightpick-tooltip-background-color;
+    box-shadow: $lightpick-box-shadow;
+    white-space: nowrap;
+    font-size: $lightpick-tooltip-font-size;
+    pointer-events: none;
+
+    &::before {
+      position: absolute;
+      bottom: -($lightpick-tooltip-triangle-size + 1);
+      left: calc(50% - #{$lightpick-tooltip-triangle-size + 1});
+      border-top: ($lightpick-tooltip-triangle-size + 1) solid
+        $lightpick-tooltip-border-color;
+      border-right: ($lightpick-tooltip-triangle-size + 1) solid transparent;
+      border-left: ($lightpick-tooltip-triangle-size + 1) solid transparent;
+      content: "";
+    }
+
+    &::after {
+      position: absolute;
+      bottom: -$lightpick-tooltip-triangle-size;
+      left: calc(50% - #{$lightpick-tooltip-triangle-size});
+      border-top: $lightpick-tooltip-triangle-size solid
+        $lightpick-tooltip-background-color;
+      border-right: $lightpick-tooltip-triangle-size solid transparent;
+      border-left: $lightpick-tooltip-triangle-size solid transparent;
+      content: "";
+    }
+  }
+
+  &__footer {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__reset-action,
+  &__apply-action {
+    border-radius: $lightpick-action-border-radius;
+    font-size: $lightpick-action-font-size;
+    border: none;
+  }
+
+  &__reset-action {
+    color: $lightpick-action-reset-color;
+    background-color: $lightpick-action-reset-background-color;
+  }
+
+  &__apply-action {
+    color: $lightpick-action-apply-color;
+    background-color: $lightpick-action-apply-background-color;
+  }
+}

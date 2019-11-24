@@ -27,8 +27,8 @@ html(lang="en")
     include ./includes/formElements/subscribe-form/subscribe
     include ./includes/formElements/star-rate/star-rate
     nav.nav
-      a.h3(href="assets/cards.html") Cards
-      a.h3(href="assets/headers-and-footers.html") Headers & Footers
+      a.h3(href="pages/cards/cards.html") Cards
+      a.h3(href="pages/headers-and-footers/headers-and-footers.html") Headers & Footers
     main.main
       .main__container
         form.form
@@ -121,8 +121,8 @@ html(lang="en")
           +dropdown('dropdown')
           +expendable-list
           +expendable-list
-          +details('#emoticon', "Комфорт", "Шумопоглощающие стены")
-          +details('#location', "Удобство", "Окно в каждой из спален")
+          +details('emoticon', "Комфорт", "Шумопоглощающие стены")
+          +details('location', "Удобство", "Окно в каждой из спален")
       .main__container
         .form
           +dropdown('dropdown')

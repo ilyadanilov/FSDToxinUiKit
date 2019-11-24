@@ -1,6 +1,5 @@
 mixin details(id, heading, paragraph)
   .details
-    svg.details__icon
-      use(xlink:href=id)
+    img(src=`/images/sprite.svg#${id}-usage`, alt="").details__icon
     h4.h4=heading
     p=paragraph

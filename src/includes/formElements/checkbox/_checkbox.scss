@@ -63,7 +63,8 @@
     position: absolute;
     left: 0;
     top: 0;
-    background: url(./../../../img/icons/check.svg) 40% 40% no-repeat;
+    background: url("../images/sprite.svg#check-usage") 50% 40% no-repeat;
+    background-size: 1.5rem;
   }
   // Модификатор стилей чекбокса для свича
   &_switch {
