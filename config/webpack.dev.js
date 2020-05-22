@@ -13,6 +13,7 @@ module.exports = {
     ],
     cards: [
       '@babel/runtime/regenerator',
+      '@babel/register',
       'webpack-hot-middleware/client?reload=true',
       './src/pages/cards/cards.js'
     ]
@@ -60,17 +61,6 @@ module.exports = {
           },
           'sass-loader',
           'webpack-import-glob-loader'
-        ]
-      },
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader',
-            options: {
-              attr: ['img:src']
-            }
-          }
         ]
       },
       {
