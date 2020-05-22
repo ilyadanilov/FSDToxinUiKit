@@ -12,6 +12,10 @@ var picker = new Lightpick({
       few: 'дня',
       many: 'дней'
     },
+    buttons: {
+      apply: 'Применить',
+      reset: 'Очистить'
+    },
     pluralize: function(i, locale) {
       if ('one' in locale && i % 10 === 1 && !(i % 100 === 11))
         return locale.one;
