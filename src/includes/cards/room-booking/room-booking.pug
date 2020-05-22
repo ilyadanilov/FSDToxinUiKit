@@ -2,8 +2,8 @@ include ../../formElements/date-picker/date-picker
 include ../../formElements/dropdown/dropdown
 
 mixin room-booking
-  form.form.card.room-booking
-    .form__container.form__container_space-between.form__container_align-center
+  form.form.form_card.room-booking
+    .form__container.form__container_space-between.form__container_align-baseline
       h1.h1.room-booking__heading
         span №
         =888
@@ -24,8 +24,8 @@ mixin room-booking
       li.room-booking__detail
         span Сбор за дополнительные услуги
             i.room-booking__icon.material-icons-outlined info
-        ='0₽'
+        ='300₽'
     .room-booking__sum
-      p.h1 Итого
-      p.h1 38 081₽
+      p.h2 Итого
+      p.h2 38 081₽
     +btn_big('забронировать')

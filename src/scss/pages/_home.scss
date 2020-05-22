@@ -16,6 +16,9 @@
   @include respond(desk) {
     margin: 7rem 9.72%;
   }
+  &_cards {
+    grid-column-gap: 5rem;
+  }
 }
 .main__container {
   display: grid;
