@@ -18,6 +18,6 @@ mixin btn_outline-light(btnText)
   button.btn.btn_outline.btn_outline-light
     span=btnText
 
-mixin btn_big(btnText)
-  button.btn.btn_big.btn_round=btnText
+mixin btn_big(btnText, addClass)
+  button.btn.btn_big.btn_round(class=addClass)=btnText
     i.material-icons arrow_forward
