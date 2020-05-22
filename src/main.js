@@ -1,3 +1,4 @@
+require('./index.pug');
 import components from './includes/**/*.js';
 import 'nouislider/distribute/nouislider.css';
 import './images/icons/check.svg';
