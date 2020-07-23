@@ -77,6 +77,15 @@ module.exports = {
         }
       },
       {
+        test: /\.ttf$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: 'fonts/[name].[ext]'
+          }
+        }
+      },
+      {
         test: /\.svg$/,
         loader: 'svg-sprite-loader',
         options: {

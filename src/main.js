@@ -6,3 +6,5 @@ import './images/icons/emoticon.svg';
 import './images/icons/location.svg';
 import './images/avatar.png';
 import './scss/main.scss';
+import './fonts/Montserrat-Bold.ttf';
+import './fonts/Montserrat-Regular.ttf';
