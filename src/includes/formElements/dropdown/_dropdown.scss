@@ -26,8 +26,8 @@
 // Поле для клика, открывающее меню
 .dropdown__placeholder {
   background-color: $color-white;
-  border: 1px solid $color-dark-25;
-  border-radius: 4px;
+  border: 1px solid $color-dark-50;
+  border-radius: 4px 4px 0 0;
   color: $color-dark-75;
   cursor: pointer;
   display: inline-block;
@@ -46,9 +46,17 @@
     padding: 0.5rem;
     position: absolute;
     right: 5%;
-    top: 35%;
-    transform: rotate(45deg);
+    transform: rotate(225deg);
+    top: 40%;
     transition: all 0.5s;
+  }
+  &_hidden {
+    border: 1px solid $color-dark-25;
+    border-radius: 4px;
+    &::after {
+      top: 35%;
+      transform: rotate(45deg);
+    }
   }
 }
 // Dropdown меню
@@ -58,13 +66,23 @@
   border-top: none;
   display: flex;
   flex-direction: column;
-  height: 0;
-  opacity: 0;
   overflow: hidden;
-  transform: translateY(-100%);
   transition: all 0.5s;
   width: 100%;
-
+  box-shadow: 0px 10px 20px $color-dark-50;
+  height: 159px;
+  opacity: 1;
+  transform: translateY(0);
+  // translateZ включает hardware acceleration, так анимация не тормозит вроде
+  transform: translateZ(0);
+  padding: 1rem 1rem 1.5rem 2rem;
+  &_hidden {
+    box-shadow: none;
+      height: 0;
+      opacity: 0;
+      transform: translateY(-100%);
+      // padding: 1rem 1rem 1.5rem 2rem;
+  }
   // Позиционирование контейнеров внутри меню
   &> .dropdown__container {
     &:not(:first-child) {
@@ -119,7 +137,12 @@
 
 // Кнопки внизу dropdown меню
 .dropdown__btn-clear {
-  display: none;
+  opacity: 1;
+  cursor: pointer;
+  &_hidden {
+    opacity: 0;
+    cursor: none;
+  }
 }
 .dropdown__btn-accept {
   margin-left: auto;
