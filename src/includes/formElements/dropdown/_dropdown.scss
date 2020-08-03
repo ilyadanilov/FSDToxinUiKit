@@ -5,24 +5,23 @@
 
 // Чекбокс, раскрывающий меню, скрыт
 .dropdown__checkbox {
-    display: none;
-    &:checked ~ .dropdown__placeholder {
-      border: 1px solid $color-dark-50;
-      border-radius: 4px 4px 0 0;
-      &::after {
-        transform: rotate(225deg);
-        top: 40%;
-      }
-    }
-    &:checked ~ .dropdown__menu {
-      box-shadow: 0px 10px 20px $color-dark-50;
-      height: 159px;
-      opacity: 1;
-      transform: translateY(0);
-      padding: 1rem 1rem 1.5rem 2rem;
-
+  display: none;
+  &:checked ~ .dropdown__placeholder {
+    border: 1px solid $color-dark-50;
+    border-radius: 4px 4px 0 0;
+    &::after {
+      transform: rotate(225deg);
+      top: 40%;
     }
   }
+  &:checked ~ .dropdown__menu {
+    box-shadow: 0px 10px 20px $color-dark-50;
+    height: 159px;
+    opacity: 1;
+    transform: translateY(0);
+    padding: 1rem 1rem 1.5rem 2rem;
+  }
+}
 // Поле для клика, открывающее меню
 .dropdown__placeholder {
   background-color: $color-white;
@@ -78,13 +77,13 @@
   padding: 1rem 1rem 1.5rem 2rem;
   &_hidden {
     box-shadow: none;
-      height: 0;
-      opacity: 0;
-      transform: translateY(-100%);
-      // padding: 1rem 1rem 1.5rem 2rem;
+    height: 0;
+    opacity: 0;
+    transform: translateY(-100%);
+    // padding: 1rem 1rem 1.5rem 2rem;
   }
   // Позиционирование контейнеров внутри меню
-  &> .dropdown__container {
+  & > .dropdown__container {
     &:not(:first-child) {
       margin-top: 1rem;
     }
@@ -141,7 +140,7 @@
   cursor: pointer;
   &_hidden {
     opacity: 0;
-    cursor: none;
+    cursor: default;
   }
 }
 .dropdown__btn-accept {

@@ -1,51 +1,87 @@
 class Model {
   constructor() {
+    this.title = {
+      // title - значения для изменения заголовка dropdown'a, если должно быть одно общее значение, т.е. общее количество гостей в данном случае.
+      default: "Сколько гостей",
+      one: "гость",
+      few: "гостя",
+      many: "гостей",
+    };
     // Взрослые дети младенцы
     this.fields = {
       adults: {
         name: "взрослые",
         minCount: 0,
         currentCount: 0,
+        maxCount: 5,
         locale: { one: "взрослый", few: "взрослых", many: "взрослых" },
       },
       children: {
         name: "дети",
         minCount: 0,
         currentCount: 0,
+        maxCount: 3,
         locale: { one: "ребенок", few: "ребенка", many: "детей" },
       },
       infants: {
         name: "младенцы",
         minCount: 0,
         currentCount: 0,
+        maxCount: 2,
         locale: { one: "младенец", few: "младенца", many: "младенцев" },
       },
     };
   }
   increaseFieldValue = (id) => {
-    this.fields[id].currentCount++;
-    this.onFieldsChanged(this.fields);
+    if (
+      this.fields[id].maxCount &&
+      this.fields[id].currentCount < this.fields[id].maxCount
+    ) {
+      this.fields[id].currentCount++;
+      this.onFieldsChanged(this.fields);
+      this.titleChange(this.countFieldValues(), this.title);
+    }
   };
   decreaseFieldValue = (id) => {
     if (this.fields[id].minCount < this.fields[id].currentCount) {
       this.fields[id].currentCount--;
       this.onFieldsChanged(this.fields);
+      this.titleChange(this.countFieldValues(), this.title);
     }
   };
   changeFieldValue = (id, value) => {
-    this.fields[id].currentCount = value;
-    this.onFieldsChanged(this.fields);
+    if (value == "") {
+      this.fields[id].currentCount = 0;
+      this.onFieldsChanged(this.fields);
+      this.titleChange(this.countFieldValues(), this.title);
+    } else if (this.fields[id].maxCount < value) {
+      this.fields[id].currentCount = this.fields[id].maxCount;
+      this.onFieldsChanged(this.fields);
+      this.titleChange(this.countFieldValues(), this.title);
+    } else if (this.fields[id].minCount > value) {
+      this.fields[id].currentCount = this.fields[id].minCount;
+      this.onFieldsChanged(this.fields);
+      this.titleChange(this.countFieldValues(), this.title);
+    } else {
+      this.fields[id].currentCount = value;
+      this.onFieldsChanged(this.fields);
+      this.titleChange(this.countFieldValues(), this.title);
+    }
   };
-  countFieldValues() {
+  // Сумма значнией полей
+  countFieldValues = () => {
     let counter = 0;
-    for (const field in fields) {
-      counter += fields[field].currentCount;
+    for (const field in this.fields) {
+      counter += +this.fields[field].currentCount;
     }
     return counter;
-  }
+  };
 
   bindFieldsChanged(callback) {
     this.onFieldsChanged = callback;
+  }
+  bindTitleChange(callback) {
+    this.titleChange = callback;
   }
 }
 class View {
@@ -130,6 +166,12 @@ class View {
       inputNum.value = fields[field].minCount;
       // Присвоить дата атрибут, который используется в методах для изменения значения инпута
       inputNum.setAttribute("data-dropdown-field-id", field);
+      // Установить минимальные значения для инпута
+      inputNum.setAttribute("min", fields[field].minCount);
+      // Установить максимальные значения для инпута
+      if (fields[field].maxCount) {
+        inputNum.setAttribute("max", fields[field].maxCount);
+      }
       // Добавить  в контейнер кнопки и инпут
       container.append(decreaseValue, inputNum, increaseValue);
       // Добавить в лэйбл контейнер с кнопками и инпутом
@@ -175,7 +217,7 @@ class View {
     // Общий эвент листнер на все меню.
     this.dropdownMenu.addEventListener("click", (event) => {
       event.preventDefault();
-      // Если целью нажатия является кнопка +, то получить из инпута по соседству id и передать его handler'y
+      // Если целью нажатия является кнопка -, то получить из инпута по соседству id и передать его handler'y
       if (
         event.target.className == "dropdown__value-btn" &&
         event.target.attributes["data-dropdown-btn-sign"].value == "decrease"
@@ -199,6 +241,15 @@ class View {
     });
   }
 
+  onEnterPress() {
+    this.dropdownMenu.addEventListener("keydown", (event) => {
+      if (event.target.className == "dropdown__input" && event.keyCode == 13) {
+        event.preventDefault();
+        event.target.blur();
+      }
+    });
+  }
+
   // Изменить значение в инпутах
   onFieldsChanged = (fields) => {
     // Лист ипутов внутри меню
@@ -212,18 +263,19 @@ class View {
       });
     }
   };
-  // Во View эвент листенер, который реаигрует на нажатие кнопки. При нажатии должен поменяться title в него должно добавиться количество гостей. ГОСТЕЙ КАРЛ! Я не глядя напихал в объекты locale с разными вариантами окончаний, которые нахуй не нужны. Так что теперь мне нужно думать как теперь этот вопрос решать. Думаю, что если в объекте есть свойство locale, то тогда берется значение из него (но в таком случае у всех объектов должен быть locale), если нет свойства locale, то должно быть в другом месте какая-то переменная или свойство родительсокого объекта, которое будет использоваться по умолчанию. Например
-  // fields {locale: {one:гость, few:гостя, many:гостей}, field1,field2... }
-  // И так. При нажатии кнопки принять запускается хэндлер из модел, который должен выдать некий результат подсчета количества гостей, после чего должен запуститься метод, обновляющий title
-  bindCountFieldValues(handler) {
-    // TODO хз
-    this.dropdownAcceptBtn.addEventListener("click", () => {
-      return handler();
-    });
-  }
-  changeTitle(int) {
-    this.dropdownTitle.textContent = `${int} гостей`;
-  }
+
+  titleChange = (sum, title) => {
+    if (sum == 0) {
+      this.dropdownTitle.textContent = title.default;
+    } else if (sum == 1) {
+      this.dropdownTitle.textContent = sum + " " + title.one;
+    } else if (sum > 4) {
+      this.dropdownTitle.textContent = sum + " " + title.many;
+    } else if (sum < 5) {
+      this.dropdownTitle.textContent = sum + " " + title.few;
+    }
+  };
+  //
 }
 
 class Controller {
@@ -236,68 +288,8 @@ class Controller {
     this.view.bindDecreaseFieldValue(this.model.decreaseFieldValue);
     this.view.bindChangeFieldValue(this.model.changeFieldValue);
     this.model.bindFieldsChanged(this.view.onFieldsChanged);
-
-    // Как сделать эвент листенеры для кнопок + -, чтобы они запускали handler'ы? Пока мысль такая, что нужно добавить несколько параметров в populateMenu, но мне такой вариант кажется довольно уродливым. Надо придумать что-то другое. Опять же я не хочу добавлять эвент листнеры постфактум по классу например, потому что в таком случае будет добавлены к абсолютно всем кнопкам, а не к кнопкам конкретного dropdown'a есть над чем подумать.
-    // Написать так, чтобы можно было с каждым новым инстансом Controller можно было передавать объект с нужными параметрами. А может и не надо такое, просто захардкодить 2 версии, с людьми и кроватями.
-    // if(fields) {
-    //   this.model.fields = fields;
-    // }
-  }
-  acceptFieldValues() {
-    // TODO тут я какой-то хуйни навертел, что если я его прямо в таком виде использую, то будет плохо. Короче надо подумать и переписать. Все-таки все эти методы должны срабатывать только при нажатии на кнопку.
-    const values = this.view.bindCountFieldValues(this.model.countFieldValues);
-    this.view.changeTitle(values);
-    this.view.handleToggleMenu();
+    this.model.bindTitleChange(this.view.titleChange);
+    this.view.onEnterPress();
   }
 }
 const app = new Controller(new Model(), new View());
-
-// const inputs = [...document.querySelectorAll('.dropdown__input')];
-// const changeValue = document.querySelectorAll('.dropdown__value-btn');
-// const accept = document.querySelector('.dropdown__btn-accept');
-// const clear = document.querySelector('.dropdown__btn-clear');
-// const placeholder = document.querySelector('.dropdown__placeholder');
-// changeValue.forEach(el => {
-//   el.addEventListener('click', () => {
-//     if (el.nextElementSibling && el.nextElementSibling.value > 0) {
-//       el.nextElementSibling.value--;
-//     } else if (el.previousElementSibling) {
-//       el.previousElementSibling.value++;
-//     }
-//   });
-// });
-
-// accept.addEventListener('click', () => {
-//   let value = 0;
-//   for (i = 0; i < inputs.length; i++) {
-//     value += parseInt(inputs[i].value);
-//   }
-//   switch (value) {
-//     case 0:
-//       placeholder.innerHTML = 'Сколько гостей';
-//       break;
-//     case 1:
-//       placeholder.innerText = '1 гость';
-//       break;
-//     case 2:
-//     case 3:
-//     case 4:
-//       placeholder.innerHTML = value + ' гостя';
-//       break;
-//     default:
-//       placeholder.innerHTML = value + ' гостей';
-//       break;
-//   }
-//   if (value > 0) {
-//     document.querySelector('.dropdown__checkbox').checked = false;
-//     clear.style.display = 'block';
-//   }
-// });
-// clear.addEventListener('click', () => {
-//   clear.style.display = 'none';
-//   for (i = 0; i < inputs.length; i++) {
-//     inputs[i].value = 0;
-//   }
-//   placeholder.innerHTML = 'Сколько гостей';
-// });
-// /**
