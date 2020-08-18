@@ -1,11 +1,11 @@
 // Отступ для label
-.dropdown__label {
+.dropdown__heading {
   margin-bottom: 0.5rem;
   background-color: #fff;
 }
 
 // Поле для клика, открывающее меню
-.dropdown__placeholder {
+.dropdown__title {
   background-color: $color-white;
   border: 1px solid $color-dark-50;
   border-radius: 4px 4px 0 0;

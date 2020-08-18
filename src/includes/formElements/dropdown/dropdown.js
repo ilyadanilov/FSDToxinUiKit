@@ -1,7 +1,10 @@
 class DropdownMenu {
   constructor(options) {
+    // Опции содержат поля ввода, и другие элементы, необходимые для работы компонента
     this.options = options;
+    // В модел логика хранения и изменения данных
     this.model = {
+      // Title название
       title: this.options.title,
       fields: this.options.fields,
       increaseFieldValue(id) {
@@ -84,12 +87,12 @@ class DropdownMenu {
         this.dropdownRoot.classList.add("dropdown");
         this.dropdownHeading = this.createElement("h3", [
           "h3",
-          "dropdown__label",
+          "dropdown__heading",
         ]);
         this.dropdownHeading.textContent = this.headingName;
         this.dropdownTitle = this.createElement("div", [
-          "dropdown__placeholder",
-          "dropdown__placeholder_hidden",
+          "dropdown__title",
+          "dropdown__title_hidden",
         ]);
         this.dropdownTitle.textContent = this.titleName;
         this.dropdownMenu = this.createElement("div", [
