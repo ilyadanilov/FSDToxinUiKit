@@ -1,12 +1,14 @@
-class DropdownMenu {
+export default class DropdownMenu {
   constructor(options) {
     // Опции содержат поля ввода, и другие элементы, необходимые для работы компонента
     this.options = options;
     // В модел логика хранения и изменения данных
     this.model = {
-      // Title название
+      // Title - название кликабельного поля
       title: this.options.title,
+      // Fields - поля ввода, их названия и значения
       fields: this.options.fields,
+      // Увеличить значение поля на 1
       increaseFieldValue(id) {
         if (
           this.fields[id].maxCount &&
@@ -15,11 +17,13 @@ class DropdownMenu {
           ++this.fields[id].currentCount;
         }
       },
+      // Уменьшить значение поля на 1
       decreaseFieldValue(id) {
         if (this.fields[id].minCount < this.fields[id].currentCount) {
           this.fields[id].currentCount--;
         }
       },
+      // Изменить значение поля в зависимости от введенной информации
       changeFieldValue(id, value) {
         if (value == "") {
           this.fields[id].currentCount = 0;
@@ -31,7 +35,7 @@ class DropdownMenu {
           this.fields[id].currentCount = value;
         }
       },
-      // Сумма значнией полей
+      // Сумма значений полей (нужна для изменения названия title)
       countFieldValues() {
         let counter = 0;
         for (const field in this.fields) {
@@ -39,6 +43,7 @@ class DropdownMenu {
         }
         return counter;
       },
+      // Метод создает список из имен и значений полей fields для последующей вставки в title
       listTitle() {
         let list = [];
         for (let field in this.fields) {
@@ -59,6 +64,7 @@ class DropdownMenu {
           ? list.slice(0, 2).join(", ") + "..."
           : this.title.default;
       },
+      // Метод создает название с суммой значений для последующей вставки в title
       singleTitle() {
         let sum = this.countFieldValues();
         if (sum == 0) {
@@ -71,6 +77,7 @@ class DropdownMenu {
           return sum + " " + this.title.few;
         }
       },
+      // Обнуление значений в fields
       resetAllValues() {
         for (const field in this.fields) {
           this.fields[field].currentCount = this.fields[field].minCount;
@@ -78,13 +85,21 @@ class DropdownMenu {
       },
     };
     this.view = {
+      // id div'a, в который внедряется всё меню
       id: this.options.id,
+      // Название заголовка над кликабельным полем
       headingName: this.options.headingName,
+      // Название кликабельного поля по умолчанию
       titleName: this.options.title.default,
+      // Определяет будут ли вставлены кнопки очистить принять в меню
       isBtnEnabled: this.options.isBtnEnabled,
+      // Метод создает heading, title и меню со всеми необходимыми css классами, аттрибутами.
       createDropdown() {
+        // Элемент корень, в который внедряется всё меню
         this.dropdownRoot = document.getElementById(this.id);
+        // Добавляем класс dropdown для лучшей читаемости компонента
         this.dropdownRoot.classList.add("dropdown");
+        // Создаем заголовок
         this.dropdownHeading = this.createElement("h3", [
           "h3",
           "dropdown__heading",
@@ -141,10 +156,8 @@ class DropdownMenu {
 
       assignMenuHeight(menu) {
         if (parseInt(menu.style.height)) {
-          console.log(parseInt(menu.style.height));
           menu.style.height = 0;
         } else {
-          console.log(parseInt(menu.style.height));
           menu.style.height = menu.scrollHeight + "px";
         }
       },
@@ -205,7 +218,7 @@ class DropdownMenu {
       },
       handleToggleMenu() {
         // Переключить стили title и dropdown menu
-        this.dropdownTitle.classList.toggle("dropdown__placeholder_hidden");
+        this.dropdownTitle.classList.toggle("dropdown__title_hidden");
         this.dropdownMenu.classList.toggle("dropdown__menu_hidden");
         this.assignMenuHeight(this.dropdownMenu);
       },
@@ -405,190 +418,3 @@ class DropdownMenu {
     }
   }
 }
-const person = new DropdownMenu({
-  id: "dropdown-person",
-  headingName: "Гости",
-  isSingleTitle: true,
-  isBtnEnabled: true,
-  title: {
-    // title - значения для изменения заголовка dropdown'a, если должно быть одно общее значение, т.е. общее количество гостей в данном случае.
-    default: "Сколько гостей",
-    one: "гость",
-    few: "гостя",
-    many: "гостей",
-  },
-  // Взрослые дети младенцы
-  fields: {
-    adults: {
-      name: "взрослые",
-      minCount: 0,
-      currentCount: 0,
-      maxCount: 5,
-      locale: { one: "взрослый", few: "взрослых", many: "взрослых" },
-    },
-    children: {
-      name: "дети",
-      minCount: 0,
-      currentCount: 0,
-      maxCount: 3,
-      locale: { one: "ребенок", few: "ребенка", many: "детей" },
-    },
-    infants: {
-      name: "младенцы",
-      minCount: 0,
-      currentCount: 0,
-      maxCount: 2,
-      locale: { one: "младенец", few: "младенца", many: "младенцев" },
-    },
-  },
-});
-const dropOne = new DropdownMenu({
-  id: "dropdown-one",
-  headingName: "dropdown",
-  isSingleTitle: false,
-  isBtnEnabled: false,
-  title: {
-    // title - значения для изменения заголовка dropdown'a, если должно быть одно общее значение, т.е. общее количество гостей в данном случае.
-    default: "Выбрать...",
-  },
-  // Взрослые дети младенцы
-  fields: {
-    bedrooms: {
-      name: "спальни",
-      minCount: 1,
-      currentCount: 1,
-      maxCount: 3,
-      locale: { one: "спальня", few: "спальни", many: "спален" },
-    },
-    beds: {
-      name: "кровати",
-      minCount: 1,
-      currentCount: 1,
-      maxCount: 6,
-      locale: { one: "кровать", few: "кровати", many: "кроватей" },
-    },
-    bathrooms: {
-      name: "ванные комнаты",
-      minCount: 1,
-      currentCount: 1,
-      maxCount: 3,
-      locale: {
-        one: "ванная комната",
-        few: "ванные комнаты",
-        many: "ванных комнат",
-      },
-    },
-  },
-});
-const dropTwo = new DropdownMenu({
-  id: "dropdown-two",
-  headingName: "dropdown",
-  isSingleTitle: false,
-  isBtnEnabled: false,
-  title: {
-    // title - значения для изменения заголовка dropdown'a, если должно быть одно общее значение, т.е. общее количество гостей в данном случае.
-    default: "Выбрать...",
-  },
-  // Взрослые дети младенцы
-  fields: {
-    bedrooms: {
-      name: "спальни",
-      minCount: 1,
-      currentCount: 1,
-      maxCount: 3,
-      locale: { one: "спальня", few: "спальни", many: "спален" },
-    },
-    beds: {
-      name: "кровати",
-      minCount: 1,
-      currentCount: 1,
-      maxCount: 6,
-      locale: { one: "кровать", few: "кровати", many: "кроватей" },
-    },
-    bathrooms: {
-      name: "ванные комнаты",
-      minCount: 1,
-      currentCount: 1,
-      maxCount: 3,
-      locale: {
-        one: "ванная комната",
-        few: "ванные комнаты",
-        many: "ванных комнат",
-      },
-    },
-  },
-});
-const dropThree = new DropdownMenu({
-  id: "dropdown-three",
-  headingName: "dropdown",
-  isSingleTitle: true,
-  isBtnEnabled: true,
-  title: {
-    // title - значения для изменения заголовка dropdown'a, если должно быть одно общее значение, т.е. общее количество гостей в данном случае.
-    default: "Сколько гостей",
-    one: "гость",
-    few: "гостя",
-    many: "гостей",
-  },
-  // Взрослые дети младенцы
-  fields: {
-    adults: {
-      name: "взрослые",
-      minCount: 0,
-      currentCount: 0,
-      maxCount: 5,
-      locale: { one: "взрослый", few: "взрослых", many: "взрослых" },
-    },
-    children: {
-      name: "дети",
-      minCount: 0,
-      currentCount: 0,
-      maxCount: 3,
-      locale: { one: "ребенок", few: "ребенка", many: "детей" },
-    },
-    infants: {
-      name: "младенцы",
-      minCount: 0,
-      currentCount: 0,
-      maxCount: 2,
-      locale: { one: "младенец", few: "младенца", many: "младенцев" },
-    },
-  },
-});
-const dropFour = new DropdownMenu({
-  id: "dropdown-four",
-  headingName: "dropdown",
-  isSingleTitle: true,
-  isBtnEnabled: true,
-  title: {
-    // title - значения для изменения заголовка dropdown'a, если должно быть одно общее значение, т.е. общее количество гостей в данном случае.
-    default: "Сколько гостей",
-    one: "гость",
-    few: "гостя",
-    many: "гостей",
-  },
-  // Взрослые дети младенцы
-  fields: {
-    adults: {
-      name: "взрослые",
-      minCount: 0,
-      currentCount: 0,
-      maxCount: 5,
-      locale: { one: "взрослый", few: "взрослых", many: "взрослых" },
-    },
-    children: {
-      name: "дети",
-      minCount: 0,
-      currentCount: 0,
-      maxCount: 3,
-      locale: { one: "ребенок", few: "ребенка", many: "детей" },
-    },
-    infants: {
-      name: "младенцы",
-      minCount: 0,
-      currentCount: 0,
-      maxCount: 2,
-      locale: { one: "младенец", few: "младенца", many: "младенцев" },
-    },
-  },
-});

@@ -1,18 +1,33 @@
+:root {
+  --dropdown-color-dark-100: #1f2041;
+  --dropdown-color-dark-75: rgba(31, 32, 65, 0.75);
+  --dropdown-color-dark-50: rgba(31, 32, 65, 0.5);
+  --dropdown-color-dark-25: rgba(31, 32, 65, 0.25);
+  --dropdown-color-dark-10: rgba(31, 32, 65, 0.1);
+  --dropdown-color-dark-5: rgba(31, 32, 65, 0.05);
+  --dropdown-color-white: #fff;
+  --dropdown-default-font-size: 14px;
+  --dropdown-small-font-size: 12px;
+}
+
 // Отступ для label
 .dropdown__heading {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: var(--dropdown-color-dark-100);
   margin-bottom: 0.5rem;
-  background-color: #fff;
 }
 
 // Поле для клика, открывающее меню
 .dropdown__title {
-  background-color: $color-white;
-  border: 1px solid $color-dark-50;
+  background-color: var(--dropdown-color-white);
+  border: 1px solid var(--dropdown-color-dark-50);
   border-radius: 4px 4px 0 0;
-  color: $color-dark-75;
+  color: var(--dropdown-color-dark-75);
   cursor: pointer;
   display: inline-block;
-  font-size: $font-size-default;
+  font-size: var(--dropdown-default-font-size);
   position: relative;
   padding: 1.5rem 2rem;
   user-select: none;
@@ -21,7 +36,7 @@
   &::after {
     content: "";
     border: solid;
-    border-color: $color-dark-50;
+    border-color: var(--dropdown-color-dark-75);
     border-width: 0 0.3rem 0.3rem 0;
     display: inline-block;
     padding: 0.5rem;
@@ -32,7 +47,7 @@
     transition: all 0.5s;
   }
   &_hidden {
-    border: 1px solid $color-dark-25;
+    border: 1px solid var(--dropdown-color-dark-25);
     border-radius: 4px;
     &::after {
       top: 35%;
@@ -42,7 +57,7 @@
 }
 // Dropdown меню
 .dropdown__menu {
-  border: 1px solid $color-dark-50;
+  border: 1px solid var(--dropdown-color-dark-50);
   border-radius: 0 0 4px 4px;
   border-top: none;
   display: flex;
@@ -50,7 +65,7 @@
   overflow: hidden;
   transition: all 0.5s ease;
   width: 100%;
-  box-shadow: 0px 10px 20px $color-dark-50;
+  box-shadow: 0px 10px 20px var(--dropdown-color-dark-5);
   opacity: 1;
   pointer-events: all;
   transform: translateY(0);
@@ -83,9 +98,9 @@
 // Dropdown инпут между кнопками
 .dropdown__input {
   border: none;
-  color: $color-dark-100;
+  color: var(--dropdown-color-dark-100);
   font-family: inherit;
-  font-size: $font-size-small;
+  font-size: var(--dropdown-small-font-size);
   font-weight: bold;
   text-align: center;
   width: 4rem;
@@ -101,10 +116,10 @@
 
 // Круглые кнопки рядом с инпутом
 .dropdown__value-btn {
-  border: 1px solid $color-dark-50;
+  border: 1px solid var(--dropdown-color-dark-50);
   background: #fff;
   border-radius: 50%;
-  color: $color-dark-50;
+  color: var(--dropdown-color-dark-50);
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -116,8 +131,8 @@
 }
 
 .dropdown__value-btn_disabled {
-  border: 1px solid $color-dark-25;
-  color: $color-dark-25;
+  border: 1px solid var(--dropdown-color-dark-25);
+  color: var(--dropdown-color-dark-25);
   cursor: default;
 }
 // Кнопки внизу dropdown меню
