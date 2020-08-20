@@ -7,7 +7,6 @@ html(lang="en")
   include ./includes/formElements/date-filter/date-filter
   include ./includes/formElements/date-picker/date-picker
   include ./includes/formElements/details/details
-  include ./includes/formElements/dropdown/dropdown
   include ./includes/formElements/expendable-checkbox-list/expendable-checkbox-list
   include ./includes/formElements/input/input
   include ./includes/formElements/label/label
@@ -29,8 +28,8 @@ html(lang="en")
     nav.nav
       a.h3(href="pages/cards/cards.html") Cards
       a.h3(href="pages/headers-and-footers/headers-and-footers.html") Headers & Footers
-    main.main
-      .main__container
+    main.uikit-grid
+      .uikit-grid__column
         form.form
           +label('text field')
             +input("Email","Text field")
@@ -50,7 +49,7 @@ html(lang="en")
             //- Форма подписки
             +label('subscription text field')
               +subscribe
-      .main__container
+      .uikit-grid__column
         .form.form_filter
           //- Чекбоксы
           fieldset.form__container.form__container_column
@@ -81,7 +80,7 @@ html(lang="en")
             .form__container.u-child-mr-20
               +starRate
               +starRate
-      .main__container
+      .uikit-grid__column
         .form.form_filter
           //- Слайдер
           +slider
@@ -115,7 +114,7 @@ html(lang="en")
           .form__container.form__container_column.u-mt-40
             h3.h3.form__label_mb-16 pagination
             +pagination
-      .main__container.main__container_row
+      .uikit-grid__column.uikit-grid__column_row-span-2
         .form.form_filter
           #dropdown-one
           #dropdown-two
@@ -123,7 +122,7 @@ html(lang="en")
           +expendable-list
           +details('emoticon', "Комфорт", "Шумопоглощающие стены")
           +details('location', "Удобство", "Окно в каждой из спален")
-      .main__container
+      .uikit-grid__column
         .form
           #dropdown-three
           fieldset.form__container.form__container_column
@@ -131,9 +130,9 @@ html(lang="en")
             .form__check-container
               +rich-check("Широкий коридор", "Ширина коридоров в номере не менее 91 см.")
               +rich-check("Помощник для инвалидов", "На 1 этаже вас встретит специалист  и проводит до номера.")
-      .main__container
+      .uikit-grid__column
         .form.form_filter
           #dropdown-four
           +bullet-list
-      .main__container.main__container_comment
+      .uikit-grid__column.uikit-grid__column_span-2
         +comment

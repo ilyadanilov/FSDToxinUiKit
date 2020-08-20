@@ -1,5 +1,4 @@
 include ../../formElements/date-picker/date-picker
-include ../../formElements/dropdown/dropdown
 
 mixin room-booking
   form.form.form_card.room-booking
@@ -12,7 +11,7 @@ mixin room-booking
         span 9990₽
         =" в сутки"
     +date-picker('Прибытие', 'Выезд')
-    +dropdown('гости')
+    #room-booking
     ul.room-booking__details
       li.room-booking__detail
         span 9990₽ x 4суток
