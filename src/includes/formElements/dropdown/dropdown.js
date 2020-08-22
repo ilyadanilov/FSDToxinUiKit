@@ -329,12 +329,13 @@ export default class DropdownMenu {
         });
       },
       activateDecreaseBtn(fieldId) {
-        let input = document.querySelector(
+        let input = this.dropdownMenu.querySelector(
           `input[data-dropdown-field-id = ${fieldId}]`
         );
         let btn = input.parentElement.querySelector(
           "[data-dropdown-btn-sign='decrease']"
         );
+
         if (input.value > input.getAttribute("min")) {
           btn.classList.remove("dropdown__value-btn_disabled");
         } else if (input.value == input.getAttribute("min")) {
@@ -343,25 +344,8 @@ export default class DropdownMenu {
       },
     };
     this.controller = {
-      isSingleTitle: this.options.isSingleTitle,
-      isBtnEnabled: this.options.isBtnEnabled,
       incVal: (fieldId) => {
         this.model.increaseFieldValue(fieldId);
-        let sumOfFieldValues = this.model.countFieldValues();
-        this.view.onFieldsChanged(this.model.fields);
-        this.view.activateDecreaseBtn(fieldId);
-        if (this.isSingleTitle) {
-          this.view.singleTitleChange(this.model.singleTitle());
-        } else {
-          this.view.listTitleChange(this.model.listTitle());
-        }
-        if (this.options.isBtnEnabled) {
-          this.view.showClearBtn(sumOfFieldValues);
-        }
-      },
-      decVal: (fieldId) => {
-        this.model.decreaseFieldValue(fieldId);
-        let sumOfFieldValues = this.model.countFieldValues();
         this.view.onFieldsChanged(this.model.fields);
         this.view.activateDecreaseBtn(fieldId);
         if (this.options.isSingleTitle) {
@@ -370,13 +354,28 @@ export default class DropdownMenu {
           this.view.listTitleChange(this.model.listTitle());
         }
         if (this.options.isBtnEnabled) {
+          let sumOfFieldValues = this.model.countFieldValues();
+          this.view.showClearBtn(sumOfFieldValues);
+        }
+      },
+      decVal: (fieldId) => {
+        this.model.decreaseFieldValue(fieldId);
+        this.view.onFieldsChanged(this.model.fields);
+        this.view.activateDecreaseBtn(fieldId);
+        if (this.options.isSingleTitle) {
+          this.view.singleTitleChange(this.model.singleTitle());
+        } else {
+          this.view.listTitleChange(this.model.listTitle());
+        }
+        if (this.options.isBtnEnabled) {
+          let sumOfFieldValues = this.model.countFieldValues();
           this.view.showClearBtn(sumOfFieldValues);
         }
       },
 
       changeVal: (fieldId, value) => {
         this.model.changeFieldValue(fieldId, value);
-        let sumOfFieldValues = this.model.countFieldValues();
+
         this.view.onFieldsChanged(this.model.fields);
         this.view.activateDecreaseBtn(fieldId);
         if (this.options.isSingleTitle) {
@@ -385,12 +384,13 @@ export default class DropdownMenu {
           this.view.listTitleChange(this.model.listTitle());
         }
         if (this.options.isBtnEnabled) {
+          let sumOfFieldValues = this.model.countFieldValues();
           this.view.showClearBtn(sumOfFieldValues);
         }
       },
       clearVal: () => {
         this.model.resetAllValues();
-        let sumOfFieldValues = this.model.countFieldValues();
+
         this.view.onFieldsChanged(this.model.fields);
         for (let field in this.options.fields) {
           this.view.activateDecreaseBtn(field);
@@ -401,6 +401,7 @@ export default class DropdownMenu {
           this.view.listTitleChange(this.model.listTitle());
         }
         if (this.options.isBtnEnabled) {
+          let sumOfFieldValues = this.model.countFieldValues();
           this.view.showClearBtn(sumOfFieldValues);
         }
       },
