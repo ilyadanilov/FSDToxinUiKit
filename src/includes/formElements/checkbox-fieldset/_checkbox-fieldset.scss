@@ -1,0 +1,9 @@
+.checkbox-fieldset {
+  &__heading {
+    margin-bottom: 2rem;
+  }
+  &__flex-container {
+    display: grid;
+    grid-row-gap: 10px;
+  }
+}
