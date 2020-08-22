@@ -2,11 +2,3 @@ mixin checkbox(spanText)
   label.checkbox
     input.checkbox__check(type="checkbox")
     span.checkbox__label=spanText
-
-mixin checkbox-fieldset
-  fieldset.checkbox-fieldset
-    legend.h3.checkbox-fieldset__heading Checkbox Buttons
-    div.checkbox-fieldset__flex-container
-      +checkbox("Можно курить")
-      +checkbox("Можно с питомцами")
-      +checkbox("Можно пригласить гостей (до 10 человек)")
