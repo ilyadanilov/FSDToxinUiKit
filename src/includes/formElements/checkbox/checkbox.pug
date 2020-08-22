@@ -10,21 +10,3 @@ mixin checkbox-fieldset
       +checkbox("Можно курить")
       +checkbox("Можно с питомцами")
       +checkbox("Можно пригласить гостей (до 10 человек)")
-
-
-
-
-
-mixin radio(firstSpanText, secondSpanText)
-  .form__container
-      label.form__check-label.form__radio-label
-        input.form__check(type="radio" name="gender" value='male')
-        span.form__check-label-text=firstSpanText
-      label.form__check-label.form__radio-label
-        input.form__check(type="radio" name="gender" value='female')
-        span.form__check-label-text=secondSpanText
-
-mixin switch(spanText)
-    label.form__check-label.form__check-label_switch
-      input.form__check.form__check_switch(type="checkbox", name="switch")
-      span.form__check-label-text.form__check-label-text_switch=spanText

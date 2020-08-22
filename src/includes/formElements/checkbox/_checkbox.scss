@@ -8,16 +8,11 @@
   }
 }
 
-// Заголовок-контейнер
 .checkbox {
   display: flex;
   align-items: center;
   color: $color-dark-50;
   position: relative;
-  // Модификатор заголовка для свича
-  &_switch {
-    color: $color-dark-75;
-  }
   &__check {
     position: absolute;
     padding: 1.25rem;
@@ -34,15 +29,6 @@
         }
         &::before {
           border-color: $color-purple;
-        }
-      }
-    }
-    // Модификация состояния для свича
-    &:checked {
-      & + .form__check-label-text_switch {
-        &::after {
-          background: $gradient-purple;
-          transform: translateX(2.5rem);
         }
       }
     }
@@ -73,50 +59,5 @@
       background: url("../images/sprite.svg#check-usage") 50% 40% no-repeat;
       background-size: 1.5rem;
     }
-    // Модификатор стилей чекбокса для свича
-    &_switch {
-      &::before {
-        width: 5rem;
-        border-radius: 1.25rem;
-        padding: 1.125rem 2.375rem;
-      }
-      &::after {
-        padding: 0.75rem;
-        left: 0.5rem;
-        top: 0.5rem;
-        border-radius: 50%;
-        opacity: 1;
-        background: linear-gradient($color-dark-25, $color-dark-25);
-        transition: 0.4s ease;
-      }
-    }
   }
-}
-// Инпут чекбокс
-
-// Span с текстом и стилями для чекбокса
-
-// Модификация чекбокса в радиокнопки
-.form__check[type="radio"] {
-  & + .form__check-label-text {
-    &::before {
-      border-radius: 50%;
-    }
-    &::after {
-      border-radius: 50%;
-      padding: 0.75rem;
-      top: 20%;
-      left: 0.5rem;
-      background: $gradient-purple center no-repeat;
-    }
-  }
-}
-// Модификация чекбокса для свича
-.form__check_switch {
-  width: 5rem;
-  height: 2.5rem;
-}
-// Отступ между радио кнопками
-.form__radio-label:first-child {
-  margin-right: 20px;
 }
