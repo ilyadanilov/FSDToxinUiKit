@@ -2,3 +2,9 @@ mixin checkbox(spanText)
   label.checkbox
     input.checkbox__check(type="checkbox")
     span.checkbox__label=spanText
+
+mixin rich-checkbox(heading, spanText)
+  label.checkbox.checkbox_rich
+    input.checkbox__check(type="checkbox")
+    span.checkbox__label.checkbox__label_rich=heading
+    span.checkbox_rich-text=spanText
