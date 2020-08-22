@@ -6,7 +6,7 @@ const server = express();
 
 const webpack = require("webpack");
 
-const config = require("../../config/webpack.dev");
+const config = require("../webpack.dev");
 
 const compiler = webpack(config);
 
@@ -23,7 +23,7 @@ server.use(webpackHotMiddleware);
 const expressStaticGzip = require("express-static-gzip");
 server.use(
   expressStaticGzip("dist", {
-    enableBrotli: true
+    enableBrotli: true,
   })
 );
 const PORT = 8080;

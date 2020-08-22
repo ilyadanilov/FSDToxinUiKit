@@ -38,3 +38,21 @@
     max-width: fit-content;
   }
 }
+.form__container {
+  border: none;
+  display: flex;
+  position: relative;
+
+  &_space-between {
+    justify-content: space-between;
+  }
+  &_align-center {
+    align-items: center;
+  }
+  &_align-baseline {
+    align-items: baseline;
+  }
+  &_column {
+    flex-direction: column;
+  }
+}
