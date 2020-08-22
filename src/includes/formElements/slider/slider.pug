@@ -1,9 +1,9 @@
-mixin slider
-  .form__container.form__container_column
-    .form__container.form__container_space-between
-      h3.h3.form__label_mb-20 Range slider
-      .form__container
-        span.value-lower
+mixin slider(heading)
+  .slider
+    .slider__header-container
+      h3.h3.slider__heading=heading
+      .slider__values-container
+        span.slider__value-lower
         span &nbsp;-&nbsp;
-        span.value-upper
-    .slider
+        span.slider__value-upper
+    .slider__control
