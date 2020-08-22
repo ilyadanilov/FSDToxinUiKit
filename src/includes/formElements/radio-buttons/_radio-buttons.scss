@@ -1,0 +1,59 @@
+.radio-buttons {
+  display: flex;
+  &__label {
+    display: flex;
+    align-items: center;
+    color: $color-dark-50;
+    position: relative;
+    &:first-child {
+      margin-right: 20px;
+    }
+  }
+  &__checkbox {
+    position: absolute;
+    padding: 1.25rem;
+    -webkit-appearance: none;
+    top: 0;
+    left: 0;
+    // Состояние чекбокса
+    &:checked {
+      & + .radio-buttons__label-text {
+        color: $color-dark-75;
+        &::after {
+          opacity: 1;
+        }
+        &::before {
+          border-color: $color-purple;
+        }
+      }
+    }
+  }
+  &__label-text {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      pointer-events: none;
+      align-self: baseline;
+      content: "";
+      border: 1px solid $color-dark-25;
+      border-radius: 50%;
+      padding: 1.125rem;
+      margin-right: 1.25rem;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+    // Кружочек
+    &::after {
+      content: "";
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      border-radius: 50%;
+      padding: 0.75rem;
+      top: 20%;
+      left: 0.5rem;
+      background: $gradient-purple;
+    }
+  }
+}
