@@ -1,0 +1,9 @@
+.richbox-fieldset {
+  &__heading {
+    margin-bottom: 2rem;
+  }
+  &__grid-container {
+    display: grid;
+    grid-row-gap: 10px;
+  }
+}

@@ -1,0 +1,9 @@
+include ../checkbox/checkbox
+
+
+mixin richbox-fieldset
+  fieldset.richbox-fieldset
+    legend.h3.richbox-fieldset__heading Checkbox Buttons
+    .richbox-fieldset__grid-container
+      +rich-checkbox("Широкий коридор", "Ширина коридоров в номере не менее 91 см.")
+      +rich-checkbox("Помощник для инвалидов", "На 1 этаже вас встретит специалист  и проводит до номера.")
