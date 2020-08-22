@@ -52,12 +52,7 @@ html(lang="en")
       .uikit-grid__column
         .form.form_filter
           //- Чекбоксы
-          fieldset.form__container.form__container_column
-            legend.h3.form__label_mb-16 Checkbox Buttons
-            .form__check-container
-              +checkbox("Можно курить")
-              +checkbox("Можно с питомцами")
-              +checkbox("Можно пригласить гостей (до 10 человек)")
+          +checkbox-fieldset
           //- Радио кнопки
           .form__container.form__container_column
             h3.h3.form__label_mb-16 Radio Buttons

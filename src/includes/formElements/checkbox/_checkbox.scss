@@ -1,5 +1,15 @@
+.checkbox-fieldset {
+  &__heading {
+    margin-bottom: 2rem;
+  }
+  &__flex-container {
+    display: grid;
+    grid-row-gap: 10px;
+  }
+}
+
 // Заголовок-контейнер
-.form__check-label {
+.checkbox {
   display: flex;
   align-items: center;
   color: $color-dark-50;
@@ -8,82 +18,83 @@
   &_switch {
     color: $color-dark-75;
   }
+  &__check {
+    position: absolute;
+    padding: 1.25rem;
+    -webkit-appearance: none;
+    top: 0;
+    left: 0;
+    // Состояние чекбокса
+    &:checked {
+      & + .checkbox__label {
+        color: $color-dark-75;
+
+        &::after {
+          opacity: 1;
+        }
+        &::before {
+          border-color: $color-purple;
+        }
+      }
+    }
+    // Модификация состояния для свича
+    &:checked {
+      & + .form__check-label-text_switch {
+        &::after {
+          background: $gradient-purple;
+          transform: translateX(2.5rem);
+        }
+      }
+    }
+  }
+  &__label {
+    display: flex;
+    align-items: center;
+    &::before {
+      pointer-events: none;
+      align-self: baseline;
+      content: "";
+      border: 1px solid $color-dark-25;
+      border-radius: 4px;
+      padding: 1.125rem;
+      margin-right: 1.25rem;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+    // Галочка
+    &::after {
+      content: "";
+      opacity: 0;
+      pointer-events: none;
+      padding: 1.25rem;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: url("../images/sprite.svg#check-usage") 50% 40% no-repeat;
+      background-size: 1.5rem;
+    }
+    // Модификатор стилей чекбокса для свича
+    &_switch {
+      &::before {
+        width: 5rem;
+        border-radius: 1.25rem;
+        padding: 1.125rem 2.375rem;
+      }
+      &::after {
+        padding: 0.75rem;
+        left: 0.5rem;
+        top: 0.5rem;
+        border-radius: 50%;
+        opacity: 1;
+        background: linear-gradient($color-dark-25, $color-dark-25);
+        transition: 0.4s ease;
+      }
+    }
+  }
 }
 // Инпут чекбокс
-.form__check {
-  position: absolute;
-  padding: 1.25rem;
-  -webkit-appearance: none;
-  top: 0;
-  left: 0;
-  // Состояние чекбокса
-  &:checked {
-    & + .form__check-label-text {
-      color: $color-dark-75;
 
-      &::after {
-        opacity: 1;
-      }
-      &::before {
-        border-color: $color-purple;
-      }
-    }
-  }
-  // Модификация состояния для свича
-  &:checked {
-    & + .form__check-label-text_switch {
-      &::after {
-        background: $gradient-purple;
-        transform: translateX(2.5rem);
-      }
-    }
-  }
-}
 // Span с текстом и стилями для чекбокса
-.form__check-label-text {
-  display: flex;
-  align-items: center;
-  &::before {
-    pointer-events: none;
-    align-self: baseline;
-    content: "";
-    border: 1px solid $color-dark-25;
-    border-radius: 4px;
-    padding: 1.125rem;
-    margin-right: 1.25rem;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-  // Галочка
-  &::after {
-    content: "";
-    opacity: 0;
-    pointer-events: none;
-    padding: 1.25rem;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background: url("../images/sprite.svg#check-usage") 50% 40% no-repeat;
-    background-size: 1.5rem;
-  }
-  // Модификатор стилей чекбокса для свича
-  &_switch {
-    &::before {
-      width: 5rem;
-      border-radius: 1.25rem;
-      padding: 1.125rem 2.375rem;
-    }
-    &::after {
-      padding: 0.75rem;
-      left: 0.5rem;
-      top: 0.5rem;
-      border-radius: 50%;
-      opacity: 1;
-      background: linear-gradient($color-dark-25, $color-dark-25);
-      transition: 0.4s ease;
-    }
-  }
-}
 
 // Модификация чекбокса в радиокнопки
 .form__check[type="radio"] {
