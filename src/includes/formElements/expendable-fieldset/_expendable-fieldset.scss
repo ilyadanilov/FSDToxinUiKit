@@ -1,0 +1,40 @@
+.expendable-fieldset {
+  overflow: hidden;
+  &__container {
+    display: grid;
+    grid-row-gap: 10px;
+    max-height: 0;
+    transition: max-height 0.5s;
+  }
+  &_active {
+    .expendable-fieldset__container {
+      max-height: 500px;
+    }
+    .expendable-fieldset__heading::after {
+      top: 30%;
+      transform: rotate(225deg);
+    }
+  }
+  &__heading {
+    cursor: pointer;
+    background-color: #fff;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    margin-bottom: 2rem;
+
+    &::after {
+      content: "";
+      border: solid;
+      border-color: $color-dark-50;
+      border-width: 0 0.3rem 0.3rem 0;
+      display: inline-block;
+      padding: 0.5rem;
+      position: absolute;
+      top: 0%;
+      right: 5%;
+      transform: rotate(45deg);
+      transition: all 0.5s;
+    }
+  }
+}
