@@ -1,22 +1,22 @@
 include ../../formElements/btn/btn
-include ../../formElements/checkbox/checkbox
 include ../../formElements/date-filter/date-filter
 include ../../formElements/input/input
 include ../../formElements/label/label
+include ../../formElements/radio-buttons/radio-buttons
 mixin registration
   form.form.form_card
     h1.h1 Регистрация аккаунта
     .form__grid-container
       +input("text","Имя")
       +input("text","Фамилия")
-      +radio("Мужчина","Женщина")
+      +radio-buttons
     +label('дата рождения')
         +date-filter('date-filter')
     .form__grid-container
       +label('данные для входа в сервис')
         +input("Email","Email")
       +input("text","Пароль")
-      +switch('Получать спецпредложения')
+      //- +switch('Получать спецпредложения')
     +btn_big('подобрать номер')
     .form__container.form__container_space-between.form__container_align-center.u-mt-10
       p Уже есть аккаунт на Toxin

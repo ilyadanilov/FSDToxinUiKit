@@ -2,20 +2,22 @@
 html(lang="en")
   include ./includes/formElements/btn/btn
   include ./includes/formElements/bullet-list/bullet-list
-  include ./includes/formElements/checkbox/checkbox
+  include ./includes/formElements/checkbox-fieldset/checkbox-fieldset
   include ./includes/formElements/comment/comment
   include ./includes/formElements/date-filter/date-filter
   include ./includes/formElements/date-picker/date-picker
   include ./includes/formElements/details/details
-  include ./includes/formElements/expendable-checkbox-list/expendable-checkbox-list
+  include ./includes/formElements/expendable-fieldset/expendable-fieldset
   include ./includes/formElements/input/input
   include ./includes/formElements/label/label
   include ./includes/formElements/like/like
   include ./includes/formElements/pagination/pagination
-  include ./includes/formElements/rich-checkbox/rich-checkbox
+  include ./includes/formElements/radio-buttons/radio-buttons
+  include ./includes/formElements/richbox-fieldset/richbox-fieldset
   include ./includes/formElements/slider/slider
   include ./includes/formElements/subscribe-form/subscribe
   include ./includes/formElements/star-rate/star-rate
+  include ./includes/formElements/switch/switch
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -41,54 +43,54 @@ html(lang="en")
           +label('masked text field')
             +input("date","ДД.ММ.ГГГГ")
           //- Календарь
-          +date-picker('date dropdown', 'date dropdown')
+          .uikit-container.uikit-mt-20
+            +date-picker('date dropdown', 'date dropdown')
           //- Календарь в фильтрах
-          .form.form_filter
+          .filter.uikit-mt-20
             +label('filter date dropdown')
               +date-filter('date-filter')
             //- Форма подписки
             +label('subscription text field')
               +subscribe
       .uikit-grid__column
-        .form.form_filter
+        .filter.uikit-grid-gap-40
           //- Чекбоксы
           +checkbox-fieldset
           //- Радио кнопки
-          .form__container.form__container_column
-            h3.h3.form__label_mb-16 Radio Buttons
-            +radio("Мужчина","Женщина")
+          .uikit-container
+            h3.h3.uikit-mb-16 Radio Buttons
+            +radio-buttons
           //- Свичи
-          .form__container.form__container_column.form__toggle
-            h3.h3.form__label_mb-16 Toggle
-            .form__container.form__container_column.u-child-mb-14
+          .uikit-container
+            h3.h3.uikit-mb-16 Toggle
+            .uikit-child-mb-14
               +switch('Получать спецпредложения')
               +switch('Получать спецпредложения')
           //-  Кнопки лайка
-          .form__container.form__container_column.u-mt-40
-            h3.h3.form__label_mb-16 Like button
-            .form__container
+          .uikit-container
+            h3.h3.uikit-mb-16 Like button
+            .uikit-flex-container
               +like('rating')
               +like('rating1')
           //- Рейтинг
-          .form__container.form__container_column.u-mt-40
-            h3.h3.form__label_mb-16 Rate button
-            .form__container.u-child-mr-20
+          .uikit-container
+            h3.h3.uikit-mb-16 Rate button
+            .uikit-flex-container.uikit-child-mr-20
               +starRate
               +starRate
       .uikit-grid__column
-        .form.form_filter
+        .filter.uikit-grid-gap-40
           //- Слайдер
-          +slider
-          //- Кнопки
-          .btn-display
+          +slider("range slider")
+          .uikit-btn-grid
             h3.h3 Buttons
-            .btn-display__container
+            .uikit-btn-grid__container
               +btn_round('Click me')
               +btn_round-light('Click me')
-            .btn-display__container
+            .uikit-btn-grid__container
               +btn_outline('Click me')
               +btn_outline-light('Click me')
-            .btn-display__container
+            .uikit-btn-grid__container
               +btn('Click me')
               +btn_grey('Click me')
             +btn_big('перейти к оплате')
@@ -106,27 +108,23 @@ html(lang="en")
           //-   .form__container.u-mt-30
           //-     +btn_big('перейти к оплате')
           //- Пагинатор
-          .form__container.form__container_column.u-mt-40
-            h3.h3.form__label_mb-16 pagination
+          .uikit-container
+            h3.h3.uikit-mb-16 pagination
             +pagination
       .uikit-grid__column.uikit-grid__column_row-span-2
-        .form.form_filter
+        .filter
           #dropdown-one
           #dropdown-two
-          +expendable-list
-          +expendable-list
+          +expendable-fieldset
+          +expendable-fieldset
           +details('emoticon', "Комфорт", "Шумопоглощающие стены")
           +details('location', "Удобство", "Окно в каждой из спален")
       .uikit-grid__column
         .form
           #dropdown-three
-          fieldset.form__container.form__container_column
-            legend.h3.form__label_mb-16 Checkbox Buttons
-            .form__check-container
-              +rich-check("Широкий коридор", "Ширина коридоров в номере не менее 91 см.")
-              +rich-check("Помощник для инвалидов", "На 1 этаже вас встретит специалист  и проводит до номера.")
+          +richbox-fieldset
       .uikit-grid__column
-        .form.form_filter
+        .filter
           #dropdown-four
           +bullet-list
       .uikit-grid__column.uikit-grid__column_span-2

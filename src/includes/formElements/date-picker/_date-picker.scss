@@ -3,10 +3,13 @@
   & > :first-child {
     margin-right: 20px;
   }
+  & > .form__label {
+    display:flex;
+    flex-grow: 1;
+  }
 }
 // Модификатор для календаря
 .form__field_date {
-  width: 18.75rem;
   position: relative;
   font-weight: normal;
 }

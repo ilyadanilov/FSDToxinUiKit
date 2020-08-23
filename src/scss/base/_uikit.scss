@@ -25,7 +25,7 @@
   }
 }
 
-.btn-display {
+.uikit-btn-grid {
   display: grid;
   grid-row-gap: 30px;
   .h3 {
@@ -38,21 +38,31 @@
     max-width: fit-content;
   }
 }
-.form__container {
-  border: none;
-  display: flex;
-  position: relative;
 
-  &_space-between {
-    justify-content: space-between;
+.uikit-flex-container {
+  display: flex;
+}
+
+.uikit-mb-16 {
+  margin-bottom: 2rem;
+}
+.uikit-mb-14 {
+  margin-bottom: 14px;
+}
+
+.uikit-child-mb-14 {
+  & :first-child {
+    margin-bottom: 14px;
   }
-  &_align-center {
-    align-items: center;
+}
+.uikit-child-mr-20 {
+  & :first-child {
+    margin-right: 20px;
   }
-  &_align-baseline {
-    align-items: baseline;
-  }
-  &_column {
-    flex-direction: column;
-  }
+}
+.uikit-mt-20 {
+  margin-top: 20px;
+}
+.uikit-grid-gap-40 {
+  row-gap: 40px;
 }
