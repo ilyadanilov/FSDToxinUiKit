@@ -154,13 +154,6 @@ export default class DropdownMenu {
         return element;
       },
 
-      assignMenuHeight(menu) {
-        if (parseInt(menu.style.height)) {
-          menu.style.height = 0;
-        } else {
-          menu.style.height = menu.scrollHeight + "px";
-        }
-      },
       populateMenu(fields) {
         for (const field in fields) {
           const label = this.createElement("label", [
@@ -218,9 +211,9 @@ export default class DropdownMenu {
       },
       handleToggleMenu() {
         // Переключить стили title и dropdown menu
+
         this.dropdownTitle.classList.toggle("dropdown__title_hidden");
         this.dropdownMenu.classList.toggle("dropdown__menu_hidden");
-        this.assignMenuHeight(this.dropdownMenu);
       },
       // Анимация раскрытия и закрытия меню.
       toggleMenu() {
