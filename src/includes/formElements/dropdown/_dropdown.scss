@@ -36,7 +36,7 @@
   &::after {
     content: "";
     border: solid;
-    border-color: var(--dropdown-color-dark-75);
+    border-color: var(--dropdown-color-dark-50);
     border-width: 0 0.3rem 0.3rem 0;
     display: inline-block;
     padding: 0.5rem;
@@ -47,7 +47,7 @@
     transition: all 0.5s;
   }
   &_hidden {
-    border: 1px solid var(--dropdown-color-dark-25);
+    border: 1px solid var(--dropdown-color-dark-50);
     border-radius: 4px;
     &::after {
       top: 35%;

@@ -3,29 +3,23 @@
   color: inherit;
   font-family: inherit;
   background: transparent;
-  border: 1px solid $color-dark-25;
+  border: 1px solid $color-dark-50;
   border-radius: 4px;
   padding: $font-size-default;
   padding-right: 0;
   -webkit-appearance: none;
   // Placeholder
   &::placeholder {
-    color: $color-dark-25;
+    color: $color-dark-50;
+    font-weight: 700;
   }
   // Hover, focus
   &:focus,
   &:hover {
-    border: 1px solid $color-dark-50;
+    border: 1px solid $color-dark-75;
   }
   // Капс для masked date
-  &[type='date'] {
+  &[type="date"] {
     text-transform: uppercase;
-  }
-  // Убрать элементы управления Chrome
-  &[type='date']::-webkit-inner-spin-button,
-  &[type='date']::-webkit-calendar-picker-indicator,
-  &[type='date']::-webkit-clear-button {
-    display: none;
-    -webkit-appearance: none;
   }
 }

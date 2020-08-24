@@ -1,4 +1,7 @@
 require("./index.pug");
+import "./fonts/Montserrat-Bold.ttf";
+import "./fonts/Montserrat-Regular.ttf";
+import "./fonts/Quicksand-Regular.ttf";
 import "./includes/formElements/**/*.js";
 import "nouislider/distribute/nouislider.css";
 import DropdownMenu from "./includes/formElements/dropdown/dropdown";
@@ -7,8 +10,8 @@ import "./images/icons/emoticon.svg";
 import "./images/icons/location.svg";
 import "./images/avatar.png";
 import "./scss/main.scss";
-import "./fonts/Montserrat-Bold.ttf";
-import "./fonts/Montserrat-Regular.ttf";
+import "lightpick/scss/lightpick.scss";
+
 const person = new DropdownMenu({
   id: "dropdown-person",
   headingName: "Гости",

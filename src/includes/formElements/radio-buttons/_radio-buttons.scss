@@ -17,7 +17,7 @@
     // Состояние чекбокса
     &:checked {
       & + .radio-buttons__label-text {
-        color: $color-dark-75;
+        color: $color-dark-100;
         &::after {
           opacity: 1;
         }
@@ -30,12 +30,12 @@
   &__label-text {
     display: flex;
     align-items: center;
-    color: $color-dark-50;
+    color: $color-dark-75;
     &::before {
       pointer-events: none;
       align-self: baseline;
       content: "";
-      border: 1px solid $color-dark-25;
+      border: 1px solid $color-dark-50;
       border-radius: 50%;
       padding: 1.125rem;
       margin-right: 1.25rem;

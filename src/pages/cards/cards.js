@@ -1,12 +1,12 @@
 import "../../fonts/Montserrat-Bold.ttf";
 import "../../fonts/Montserrat-Regular.ttf";
-import "../../fonts/Quicksand/Quicksand-Regular.ttf";
+import "../../fonts/Quicksand-Regular.ttf";
 require("./cards.pug");
 
 import "../../includes/formElements/date-picker/date-picker";
 import "../../includes/cards/**/*.js";
-import "lightpick/scss/lightpick.scss";
 import "../../scss/pages/_cards.scss";
+import "lightpick/scss/lightpick.scss";
 import Lightpick from "lightpick";
 
 var cardDatePicker = new Lightpick({
