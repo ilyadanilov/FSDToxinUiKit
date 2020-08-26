@@ -1,14 +1,18 @@
 mixin btn(btnText)
-  button.btn=btnText
+  button.btn
+    span=btnText
 
 mixin btn_grey(btnText)
-  button.btn.btn_grey=btnText
+  button.btn.btn_grey
+    span=btnText
 
 mixin btn_round(btnText)
-  button.btn.btn_round=btnText
+  button.btn.btn_round
+    span=btnText
 
 mixin btn_round-light(btnText)
-  button.btn.btn_round.btn_light=btnText
+  button.btn.btn_round.btn_light
+    span=btnText
 
 mixin btn_outline(btnText)
   button.btn.btn_outline
@@ -19,5 +23,6 @@ mixin btn_outline-light(btnText)
     span=btnText
 
 mixin btn_big(btnText, addClass)
-  button.btn.btn_big.btn_round(class=addClass)=btnText
-    i.material-icons arrow_forward
+  button.btn.btn_big.btn_round(class=addClass)
+    span=btnText
+      i.material-icons arrow_forward

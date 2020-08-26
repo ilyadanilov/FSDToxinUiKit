@@ -1,32 +1,58 @@
 .btn {
-  background-color: transparent;
+  background-color: $color-white;
   border: none;
+  width: max-content;
   color: $color-purple;
   cursor: pointer;
   font-family: inherit;
   font-size: $font-size-small;
   font-weight: bold;
+  padding: 2px;
+  border-radius: 30px;
   text-transform: uppercase;
   position: relative;
+  transition: all 0.35s ease;
+  span {
+    border-radius: 30px;
+    transition: background-color 0.35s ease;
+  }
   &_grey {
     color: $color-dark-50;
   }
   // Овальная кнопка
   &_round {
-    padding: 1.75rem 2.5rem;
     background: $gradient-purple;
-    border-radius: 2.75rem;
-    color: $color-white;
+    display: flex;
+    flex-direction: column;
+    span {
+      padding: 1.5rem 2.25rem;
+      color: $color-white;
+    }
+    &:hover {
+      span {
+        background-color: $color-white;
+        color: $color-purple;
+      }
+    }
   }
   // Кнопка с бордером
   &_outline {
     background: $gradient-purple;
-    border-radius: 100px;
-    padding: 2rem 2px;
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+    border-radius: 60px;
+    &:hover {
+      span {
+        background-color: transparent;
+        color: $color-white;
+      }
+    }
     span {
-      border-radius: 2.75rem;
-      padding: 1.75rem 2.5rem;
+      border-radius: 130px;
+      padding: 1.5rem 2.25rem;
       background-color: $color-white;
+      transition: background-color 0.35s ease;
     }
     // Серый бордер
     &-light {
@@ -42,12 +68,31 @@
     opacity: 0.5;
   }
   &_big {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    span {
+      width: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     i {
       position: absolute;
       right: 10px;
+      color: $color-white;
+    }
+    &:hover {
+      i {
+        color: $color-purple;
+      }
     }
   }
+  &:hover {
+    transform: translateY(-5px);
+    background-color: $color-white;
+    box-shadow: 0px 5px 10px rgba(31, 32, 65, 0.25);
+  }
 }
+// TODO Я делал единую анимацию для всех кнопок - при наведении появляется(или исчезает) бордер, меняется бэкграунд и цвет шрифта. Пока заковыка в том, что кнопки без бордера и задника должны быть белые по умолчанию, а это значит, что у них должен быть span белого цвета, а у wraper btn не должно быть паддинга в 2px. Вопрос звучит так - анимируется ли паддинг(при наведении добавлять паддинг 2px) и надо ли мне вообще все это?
+// TODO Подумал, что можно оставить кнопки прозрачными, но пусть они тоже будут ввиде капсул, чтобы тень их подсвечивала т.е. белый фон, бордер радиус, тень и трансформ транслейт при наведении.
+
+// ToDO продумывать архитектуру заранее: выписать вообще все элементы, цвета и прочие бордеры, категоризировать их раскидать похожии с похожими, продумать анимации, страницы, компоненты и пр.
