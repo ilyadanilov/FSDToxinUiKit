@@ -69,3 +69,8 @@
 .uikit-grid-gap-40 {
   row-gap: 40px;
 }
+#rating {
+  .like:first-child {
+    margin-right: 1.25rem;
+  }
+}

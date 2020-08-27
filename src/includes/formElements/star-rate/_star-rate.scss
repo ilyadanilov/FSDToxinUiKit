@@ -4,7 +4,7 @@
   unicode-bidi: bidi-override;
   direction: rtl;
   line-height: 1;
-  &__check[type='radio'] {
+  &__check[type="radio"] {
     margin-left: -3rem;
     margin-right: 0;
     top: 3px;
@@ -13,6 +13,7 @@
     position: relative;
     z-index: 2;
     opacity: 0;
+    cursor: pointer;
   }
   &__star {
     font-size: 3rem;
@@ -30,7 +31,7 @@
   & > *:hover:before,
   & > *:hover ~ .star-rate__star:before,
   &:not(:hover) > .star-rate__check:checked ~ .star-rate__star:before {
-    content: '\2605';
+    content: "\2605";
     position: absolute;
     left: 0;
     background: $gradient-purple;
