@@ -6,8 +6,8 @@
   border: 1px solid $color-dark-50;
   border-radius: 4px;
   padding: $font-size-default;
-  padding-right: 0;
   -webkit-appearance: none;
+  width: 100%;
   // Placeholder
   &::placeholder {
     color: $color-dark-50;
