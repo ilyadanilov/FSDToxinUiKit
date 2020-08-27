@@ -1,10 +1,10 @@
 .form__date-picker {
   display: flex;
   & > :first-child {
-    margin-right: 20px;
+    margin-right: 6.25%;
   }
   & > .form__label {
-    display:flex;
+    display: flex;
     flex-grow: 1;
   }
 }
