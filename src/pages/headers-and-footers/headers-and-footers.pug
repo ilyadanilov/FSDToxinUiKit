@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+html(lang="en")
+  //- include ./includes/formElements/btn/btn
+  //- include ./includes/formElements/bullet-list/bullet-list
+  //- include ./includes/formElements/checkbox-fieldset/checkbox-fieldset
+  //- include ./includes/formElements/comment/comment
+  //- include ./includes/formElements/date-filter/date-filter
+  //- include ./includes/formElements/date-picker/date-picker
+  //- include ./includes/formElements/details/details
+  //- include ./includes/formElements/expendable-fieldset/expendable-fieldset
+  include ../../includes/formElements/input/input
+  include ../../includes/formElements/label/label
+  //- include ./includes/formElements/like/like
+  //- include ./includes/formElements/pagination/pagination
+  //- include ./includes/formElements/radio-buttons/radio-buttons
+  //- include ./includes/formElements/richbox-fieldset/richbox-fieldset
+  //- include ./includes/formElements/slider/slider
+  //- include ./includes/formElements/subscribe-form/subscribe
+  //- include ./includes/formElements/star-rate/star-rate
+  //- include ./includes/formElements/switch/switch
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet")
+    title Toxin UI Kit Headers & Footers
+  body
+    main.uikit-grid
+      .uikit-grid__column
+        form
+          +label('some label')
+            +input('text','some placeholder')
+          #room-search

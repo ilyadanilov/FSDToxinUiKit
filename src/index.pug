@@ -43,17 +43,16 @@ html(lang="en")
           +label('masked text field')
             +input("date","ДД.ММ.ГГГГ")
           //- Календарь
-          .uikit-container.uikit-mt-20
-            +date-picker('date dropdown', 'date dropdown')
+          +date-picker('date dropdown', 'date dropdown')
           //- Календарь в фильтрах
-          .filter.uikit-mt-20
-            +label('filter date dropdown')
-              +date-filter('date-filter')
-            //- Форма подписки
-            +label('subscription text field')
-              +subscribe
+        .filter
+          +label('filter date dropdown')
+            +date-filter('date-filter')
+          //- Форма подписки
+          +label('subscription text field')
+            +subscribe
       .uikit-grid__column
-        .filter.uikit-grid-gap-40
+        .filter
           //- Чекбоксы
           +checkbox-fieldset
           //- Радио кнопки

@@ -1,121 +1,132 @@
-const path = require('path');
-const webpack = require('webpack');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+const path = require("path");
+const webpack = require("webpack");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const SpriteLoaderPlugin = require("svg-sprite-loader/plugin");
 
 module.exports = {
   entry: {
     main: [
-      '@babel/runtime/regenerator',
-      'webpack-hot-middleware/client?reload=true',
-      './src/main.js'
+      "@babel/runtime/regenerator",
+      "webpack-hot-middleware/client?reload=true",
+      "./src/main.js",
     ],
     cards: [
-      '@babel/runtime/regenerator',
-      '@babel/register',
-      'webpack-hot-middleware/client?reload=true',
-      './src/pages/cards/cards.js'
-    ]
+      "@babel/runtime/regenerator",
+      "@babel/register",
+      "webpack-hot-middleware/client?reload=true",
+      "./src/pages/cards/cards.js",
+    ],
+    "headers-and-footers": [
+      "@babel/runtime/regenerator",
+      "@babel/register",
+      "webpack-hot-middleware/client?reload=true",
+      "./src/pages/headers-and-footers/headers-and-footers.js",
+    ],
   },
-  mode: 'development',
+  mode: "development",
   output: {
-    filename: './js/[name]-bundle.js',
-    path: path.resolve(__dirname, '../dist'),
-    publicPath: '/'
+    filename: "./js/[name]-bundle.js",
+    path: path.resolve(__dirname, "../dist"),
+    publicPath: "/",
   },
   devServer: {
-    contentBase: 'dist',
+    contentBase: "dist",
     overlay: true,
-    hot: true
+    hot: true,
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   module: {
     rules: [
       {
         test: /\.js$/,
-        use: ['babel-loader', 'webpack-import-glob-loader'],
-        exclude: /node_modules/
+        use: ["babel-loader", "webpack-import-glob-loader"],
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
-              url: false
-            }
-          }
-        ]
+              url: false,
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
-              url: false
-            }
+              url: false,
+            },
           },
-          'sass-loader',
-          'webpack-import-glob-loader'
-        ]
+          "sass-loader",
+          "webpack-import-glob-loader",
+        ],
       },
       {
         test: /\.pug$/,
-        use: 'pug-loader'
+        use: "pug-loader",
       },
       {
         test: /\.(jpg|gif|png)$/,
         use: {
-          loader: 'file-loader',
+          loader: "file-loader",
           options: {
-            name: 'images/[name].[ext]'
-          }
-        }
+            name: "images/[name].[ext]",
+          },
+        },
       },
       {
         test: /\.ttf$/,
         use: {
-          loader: 'file-loader',
+          loader: "file-loader",
           options: {
-            name: 'fonts/[name].[ext]'
-          }
-        }
+            name: "fonts/[name].[ext]",
+          },
+        },
       },
       {
         test: /\.svg$/,
-        loader: 'svg-sprite-loader',
+        loader: "svg-sprite-loader",
         options: {
           extract: true,
-          spriteFilename: './images/sprite.svg',
-          publicPath: '/'
-        }
-      }
-    ]
+          spriteFilename: "./images/sprite.svg",
+          publicPath: "/",
+        },
+      },
+    ],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
-      template: './src/pages/cards/cards.pug',
-      filename: 'pages/cards/cards.html',
-      excludeChunks: ['main']
+      template: "./src/pages/cards/cards.pug",
+      filename: "pages/cards/cards.html",
+      excludeChunks: ["main", "headers-and-footers"],
     }),
     new HTMLWebpackPlugin({
-      template: './src/index.pug',
-      filename: 'index.html',
-      excludeChunks: ['cards']
+      template: "./src/pages/headers-and-footers/headers-and-footers.pug",
+      filename: "pages/headers-and-footers/headers-and-footers.html",
+      excludeChunks: ["main", "cards"],
+    }),
+    new HTMLWebpackPlugin({
+      template: "./src/index.pug",
+      filename: "index.html",
+      excludeChunks: ["cards", "headers-and-footers"],
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css'
+      filename: "css/[name].css",
     }),
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery'
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
     }),
-    new SpriteLoaderPlugin()
-  ]
+    new SpriteLoaderPlugin(),
+  ],
 };
