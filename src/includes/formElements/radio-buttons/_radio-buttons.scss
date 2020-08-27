@@ -4,16 +4,23 @@
     display: flex;
     align-items: center;
     position: relative;
+    cursor: pointer;
     &:first-child {
       margin-right: 20px;
     }
   }
   &__checkbox {
+    cursor: pointer;
     position: absolute;
     padding: 1.25rem;
     -webkit-appearance: none;
     top: 0;
     left: 0;
+    &:hover {
+      & + .radio-buttons__label-text::before {
+        border-color: $color-purple;
+      }
+    }
     // Состояние чекбокса
     &:checked {
       & + .radio-buttons__label-text {
