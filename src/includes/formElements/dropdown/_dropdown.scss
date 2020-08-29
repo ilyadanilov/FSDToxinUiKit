@@ -6,14 +6,13 @@
   --dropdown-color-dark-10: rgba(31, 32, 65, 0.1);
   --dropdown-color-dark-5: rgba(31, 32, 65, 0.05);
   --dropdown-color-white: #fff;
-  --dropdown-default-font-size: 14px;
-  --dropdown-small-font-size: 12px;
+  --dropdown-default-font-size: 1.4rem;
+  --dropdown-small-font-size: 1.2rem;
 }
-
 // Отступ для label
 .dropdown__heading {
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: var(--dropdown-small-font-size);
   text-transform: uppercase;
   color: var(--dropdown-color-dark-100);
   margin-bottom: 0.5rem;
@@ -29,7 +28,7 @@
   display: inline-block;
   font-size: var(--dropdown-default-font-size);
   position: relative;
-  padding: 1.5rem 2rem;
+  padding: 1.2rem 1.6rem;
   user-select: none;
   width: 100%;
   z-index: 1;
@@ -37,9 +36,9 @@
     content: "";
     border: solid;
     border-color: var(--dropdown-color-dark-50);
-    border-width: 0 0.3rem 0.3rem 0;
+    border-width: 0 0.24rem 0.24rem 0;
     display: inline-block;
-    padding: 0.5rem;
+    padding: 0.4rem;
     position: absolute;
     right: 5%;
     transform: rotate(225deg);
@@ -62,7 +61,7 @@
   border-radius: 0 0 4px 4px;
   border-top: none;
   display: grid;
-  row-gap: 1rem;
+  row-gap: 0.8rem;
   overflow: hidden;
   transition: all 0.5s ease;
   width: 100%;
@@ -71,12 +70,12 @@
   opacity: 1;
   pointer-events: all;
   transform: translateY(0);
-  padding: 1rem 1rem 1.5rem 2rem;
+  padding: 0.8rem 0.8rem 1.2rem 1.6rem;
   &_hidden {
     pointer-events: none;
     box-shadow: none;
     max-height: 0;
-    padding: 0 1rem 0 2rem;
+    padding: 0 0.8rem 0 1.6rem;
     opacity: 0;
     transform: translateY(-30%);
   }
@@ -88,7 +87,7 @@
   justify-content: space-between;
   align-items: center;
   &_btn {
-    margin-top: 1rem;
+    margin-top: 0.8rem;
   }
 }
 
@@ -100,7 +99,7 @@
   font-size: var(--dropdown-small-font-size);
   font-weight: bold;
   text-align: center;
-  width: 4rem;
+  width: 3.2rem;
   &[type="number"]::-webkit-outer-spin-button,
   &[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -121,9 +120,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
-  height: 4rem;
-  width: 4rem;
+  font-size: 1.6rem;
+  height: 3rem;
+  width: 3rem;
   user-select: none;
 }
 

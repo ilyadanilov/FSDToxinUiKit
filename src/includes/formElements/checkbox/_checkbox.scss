@@ -7,7 +7,7 @@
   &__check {
     cursor: pointer;
     position: absolute;
-    padding: 1.25rem;
+    padding: 1rem;
     -webkit-appearance: none;
     top: 0;
     left: 0;
@@ -39,8 +39,8 @@
       content: "";
       border: 1px solid $color-dark-50;
       border-radius: 4px;
-      padding: 1.125rem;
-      margin-right: 1.25rem;
+      padding: 0.9rem;
+      margin-right: 1rem;
       -webkit-transition: 0.4s;
       transition: 0.4s;
     }
@@ -49,12 +49,12 @@
       content: "";
       opacity: 0;
       pointer-events: none;
-      padding: 1.25rem;
+      padding: 1rem;
       position: absolute;
       left: 0;
       top: 0;
       background: url("../images/sprite.svg#check-usage") 50% 40% no-repeat;
-      background-size: 1.5rem;
+      background-size: 1.2rem;
     }
     &_rich {
       font-weight: bold;

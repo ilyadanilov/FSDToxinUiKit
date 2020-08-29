@@ -2,12 +2,12 @@
   &__heading {
     span {
       font-size: $font-size-default;
-      margin-right: 5px;
+      margin-right: 0.5rem;
       &:last-child {
         font-family: $font-family-default;
-        margin-left: 5px;
+        margin-left: 0.5rem;
         color: $color-purple;
-        font-size: 2rem;
+        font-size: 1.6rem;
       }
     }
   }

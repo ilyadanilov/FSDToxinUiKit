@@ -1,13 +1,13 @@
 // Кнопка лайка
 .like {
   -webkit-appearance: none;
-  width: 5rem;
-  height: 2.5rem;
+  width: 4rem;
+  height: 2rem;
   background-color: $color-white;
   border: solid 1px $color-dark-25;
   position: relative;
   background-clip: padding-box;
-  border-radius: 1.25rem;
+  border-radius: 1rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -15,7 +15,7 @@
   // Сердечко и количество лайков
   icon,
   span {
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: $color-dark-25;
     transition: all 0.5s ease-out;
   }
