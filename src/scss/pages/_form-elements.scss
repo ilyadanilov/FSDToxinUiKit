@@ -1,15 +1,13 @@
-.uikit-grid {
+.form-elements-grid {
   display: grid;
   grid-template-columns: 320px 266px 266px;
   grid-column-gap: 11%;
   grid-row-gap: 100px;
   margin-top: 4rem;
-  margin-bottom: 80rem;
+  margin-bottom: 30rem;
+  justify-content: center;
   @include respond(desk) {
-    margin: 5.6rem 9.72%;
-  }
-  &_cards {
-    grid-column-gap: 4rem;
+    margin-top: 5.6rem;
   }
   &__column {
     display: grid;
@@ -25,7 +23,7 @@
   }
 }
 
-.uikit-btn-grid {
+.form-elements-btn-grid {
   display: grid;
   grid-row-gap: 30px;
   .h3 {
@@ -39,34 +37,34 @@
   }
 }
 
-.uikit-flex-container {
+.form-elements-flex-container {
   display: flex;
 }
 
-.uikit-mb-16 {
+.form-elements-mb-16 {
   margin-bottom: 16px;
 }
-.uikit-mb-14 {
+.form-elements-mb-14 {
   margin-bottom: 14px;
 }
 
-.uikit-child-mb-14 {
+.form-elements-child-mb-14 {
   & :first-child {
     margin-bottom: 14px;
   }
 }
-.uikit-child-mr-20 {
+.form-elements-child-mr-20 {
   & :first-child {
     margin-right: 20px;
   }
 }
-.uikit-mt-10 {
+.form-elements-mt-10 {
   margin-top: 10px;
 }
-.uikit-mt-20 {
+.form-elements-mt-20 {
   margin-top: 20px;
 }
-.uikit-grid-gap-40 {
+.form-elements-grid-gap-40 {
   row-gap: 40px;
 }
 #rating {

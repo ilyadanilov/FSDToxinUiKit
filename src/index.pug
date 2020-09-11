@@ -30,8 +30,8 @@ html(lang="en")
     nav.nav
       a.h3(href="pages/cards/cards.html") Cards
       a.h3(href="pages/headers-and-footers/headers-and-footers.html") Headers & Footers
-    main.uikit-grid
-      .uikit-grid__column
+    main.form-elements-grid
+      .form-elements-grid__column
         form.form
           +label('text field')
             +input("Email","Text field")
@@ -51,45 +51,45 @@ html(lang="en")
           //- Форма подписки
           +label('subscription text field')
             +subscribe
-      .uikit-grid__column
+      .form-elements-grid__column
         .filter
           //- Чекбоксы
           +checkbox-fieldset
           //- Радио кнопки
-          .uikit-container
-            h3.h3.uikit-mb-16 Radio Buttons
+          .form-elements-container
+            h3.h3.form-elements-mb-16 Radio Buttons
             +radio-buttons
           //- Свичи
-          .uikit-container
-            h3.h3.uikit-mb-16 Toggle
-            .uikit-child-mb-14
+          .form-elements-container
+            h3.h3.form-elements-mb-16 Toggle
+            .form-elements-child-mb-14
               +switch('Получать спецпредложения')
               +switch('Получать спецпредложения')
           //-  Кнопки лайка
-          .uikit-container
-            h3.h3.uikit-mb-16 Like button
-            .uikit-flex-container
+          .form-elements-container
+            h3.h3.form-elements-mb-16 Like button
+            .form-elements-flex-container
               +like('rating')
               +like('rating1')
           //- Рейтинг
-          .uikit-container
-            h3.h3.uikit-mb-16 Rate button
-            .uikit-flex-container.uikit-child-mr-20
+          .form-elements-container
+            h3.h3.form-elements-mb-16 Rate button
+            .form-elements-flex-container.form-elements-child-mr-20
               +starRate
               +starRate
-      .uikit-grid__column
-        .filter.uikit-grid-gap-40
+      .form-elements-grid__column
+        .filter.form-elements-grid-gap-40
           //- Слайдер
           +slider("range slider")
-          .uikit-btn-grid
+          .form-elements-btn-grid
             h3.h3 Buttons
-            .uikit-btn-grid__container
+            .form-elements-btn-grid__container
               +btn_round('Click me')
               +btn_round-light('Click me')
-            .uikit-btn-grid__container
+            .form-elements-btn-grid__container
               +btn_outline('Click me')
               +btn_outline-light('Click me')
-            .uikit-btn-grid__container
+            .form-elements-btn-grid__container
               +btn('Click me')
               +btn_grey('Click me')
             +btn_big('перейти к оплате')
@@ -107,10 +107,10 @@ html(lang="en")
           //-   .form__container.u-mt-30
           //-     +btn_big('перейти к оплате')
           //- Пагинатор
-          .uikit-container
-            h3.h3.uikit-mb-16 pagination
+          .form-elements-container
+            h3.h3.form-elements-mb-16 pagination
             +pagination
-      .uikit-grid__column.uikit-grid__column_row-span-2
+      .form-elements-grid__column.form-elements-grid__column_row-span-2
         .filter
           #dropdown-one
           #dropdown-two
@@ -118,13 +118,13 @@ html(lang="en")
           +expendable-fieldset
           +details('emoticon', "Комфорт", "Шумопоглощающие стены")
           +details('location', "Удобство", "Окно в каждой из спален")
-      .uikit-grid__column
+      .form-elements-grid__column
         .form
           #dropdown-three
           +richbox-fieldset
-      .uikit-grid__column
+      .form-elements-grid__column
         .filter
           #dropdown-four
           +bullet-list
-      .uikit-grid__column.uikit-grid__column_span-2
+      .form-elements-grid__column.form-elements-grid__column_span-2
         +comment
