@@ -8,3 +8,20 @@
 @import "../../includes/formElements/icons/icons";
 @import "../../includes/formElements/input/input";
 @import "../../includes/formElements/label/label";
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 380px 380px 320px;
+  column-gap: 4rem;
+  margin-top: 6rem;
+  margin-bottom: 30rem;
+  justify-content: center;
+  @include respond(desk) {
+    margin-top: 5.6rem;
+  }
+  &__column {
+    display: grid;
+    grid-row-gap: 4rem;
+    height: fit-content;
+  }
+}
