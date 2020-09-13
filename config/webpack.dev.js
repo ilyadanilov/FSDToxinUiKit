@@ -106,12 +106,12 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
       template: "./src/pages/cards/cards.pug",
-      filename: "pages/cards/cards.html",
+      filename: "pages/cards.html",
       excludeChunks: ["main", "headers-and-footers"],
     }),
     new HTMLWebpackPlugin({
       template: "./src/pages/headers-and-footers/headers-and-footers.pug",
-      filename: "pages/headers-and-footers/headers-and-footers.html",
+      filename: "pages/headers-and-footers.html",
       excludeChunks: ["main", "cards"],
     }),
     new HTMLWebpackPlugin({
