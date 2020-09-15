@@ -12,13 +12,14 @@ const webpack = require('webpack');
 module.exports = {
   entry: {
     main: ['./src/main.js'],
-    cards: ['./src/pages/cards/cards.js']
+    cards: ['./src/pages/cards/cards.js'],
+    "headers-and-footers": ["./src/pages/headers-and-footers/headers-and-footers.js"],
   },
   mode: 'production',
   output: {
-    filename: './js/[name]-bundle.[contenthash].js',
-    path: path.resolve(__dirname, '../dist'),
-    publicPath: '/'
+    filename: 'js/[name]-bundle.[contenthash].js',
+    path: path.resolve(__dirname, '../dist/'),
+    publicPath: './'
   },
   optimization: {
     runtimeChunk: 'single',
@@ -91,12 +92,20 @@ module.exports = {
         }
       },
       {
+        test: /\.ttf$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "fonts/[name].[ext]",
+          },
+        },
+      },
+      {
         test: /\.svg$/,
         loader: 'svg-sprite-loader',
         options: {
           extract: true,
-          spriteFilename: './images/sprite.svg',
-          publicPath: '/'
+          spriteFilename: 'images/sprite.svg',
         }
       }
     ]
@@ -107,13 +116,18 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
       template: './src/pages/cards/cards.pug',
-      filename: 'pages/cards/cards.html',
-      excludeChunks: ['main']
+      filename: 'pages/cards.html',
+      excludeChunks: ['main', 'headers-and-footers']
     }),
     new HTMLWebpackPlugin({
       template: './src/index.pug',
       filename: 'index.html',
-      excludeChunks: ['cards']
+      excludeChunks: ['cards','headers-and-footers']
+    }),
+    new HTMLWebpackPlugin({
+      template: "./src/pages/headers-and-footers/headers-and-footers.pug",
+      filename: "pages/headers-and-footers.html",
+      excludeChunks: ["main", "cards"],
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].css'
@@ -130,6 +144,7 @@ module.exports = {
     new CompressionPlugin({
       algorithm: 'gzip'
     }),
-    new BrotliPlugin()
+    new BrotliPlugin(),
+    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /ru/),
   ]
 };
