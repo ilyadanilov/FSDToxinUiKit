@@ -17,7 +17,7 @@
     "@babel/runtime": "^7.10.3",
     "jquery": "^3.5.1",
     "lightpick": "git+https://github.com/ilyadanilov/Lightpick.git",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "nouislider": "^13.1.5"
   },
   "devDependencies": {
