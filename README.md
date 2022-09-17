@@ -1,10 +1,6 @@
-https://ilyadanilov.github.io/FSDToxinUiKit/docs
+https://danilovuikit.netlify.app/
 
-main.main
-  .main__container
-    form.form
-      +label("Name")
-        +input("type", "placeholder")
-
-  .main__container
-  .main__container
+Последняя опубликованная работа - UI Kit.
+Dropdown меню написал с 0 на JS и понял, что хочу быть JS программистом,
+а не верстальщиком, как планировалось ранее.
+Этой работой я горжусь, не смотря на то, что не доделал.
